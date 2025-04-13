@@ -377,7 +377,7 @@ For example, if you see an error about key '1234ABCD', run::
 Note: In newer Debian versions, apt-key is deprecated, but this approach 
 still works for the Debian images provided above.
 
-If you get any error such as **'gnupg, gnupg2 and gnupg1 do not seem to be installed, but one of them is required for this operation'** be sure to run these commands::
+If you get any error such as **'gnupg, gnupg2 and gnupg1 do not seem to be installed, but one of them is required for this operation'** be sure to run these commands:
 
 Download the ASCII-armored key::
     
@@ -496,7 +496,7 @@ HP-UX
 - File downloads see https://archive.org/download/hpunix/
 
 HP-UX 10.20
-~~~~~~~~~~
+~~~~~~~~~~~
 
 For HP-UX 10.20, you can find images at `archive.org <https://archive.org/details/hpux_20200510>`__. 
 The link contains both img and iso files for HP-UX 10.20.
