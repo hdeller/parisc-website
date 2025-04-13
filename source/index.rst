@@ -98,6 +98,17 @@ Our sponsors
 PA-RISC Linux NEWS
 ------------------
 
+Apr 2025
+~~~~~~~~
+- Qemu participates in the Google Summer of Code (GSOC) 2025 project with one
+  project aiming to fully support the LASI network card and NCR 710 SCSI
+  controller: https://wiki.qemu.org/Google_Summer_of_Code_2025
+
+Mar 2025
+~~~~~~~~
+- With glibc 2.41, any package with a shared library that may be dlopen'd must be rebuilt with gcc-14 or later.
+  Otherwise you may get error messages like: "cannot enable executable stack as shared object requires: Invalid argument".
+
 Feb 2025
 ~~~~~~~~
 - Dave fixed another long-standing glibc floating-point bug: `Miscompilation of sysdeps/ieee754/dbl-64/s_fma.c

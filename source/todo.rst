@@ -2146,6 +2146,11 @@ ABI breakages (e.g. dropped HP-UX support)
 
   - Arnd Bergmann noticed that various compat syscalls changed how they were implemented in glibc and kernel. His path series `linux system call fixes <https://lore.kernel.org/lkml/20240620162316.3674955-1-arnd@kernel.org/>`__ fixes this and suggests that people should use Debian bookworm with glibc >= 2.35 and Linux kernels >= 6.10.
 
+- **glibc 2.41 and executable stack in dlopen'ed share libaries**
+
+  - With glibc 2.41, any package with a shared library that may be dlopen'd must be rebuilt with gcc-14 or later.
+    Otherwise you may get error messages like: "cannot enable executable stack as shared object requires: Invalid argument".
+
 .. _parisc_linux.org_homepage_and_debian_build_server_infrastructure_work:
 
 parisc-linux.org Homepage and Debian build server infrastructure work
