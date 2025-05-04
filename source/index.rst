@@ -98,15 +98,15 @@ Our sponsors
 PA-RISC Linux NEWS
 ------------------
 
-Apr 2025
+May 2025
 ~~~~~~~~
-- `Qemu v10 was released <https://wiki.qemu.org/ChangeLog/10.0>`__
 - `Fixed a kernel bug which led to SIGFPE crashes <https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=de3629baf5a33af1919dec7136d643b0662e85ef>`__
 
 Apr 2025
 ~~~~~~~~
-- Qemu participates in the Google Summer of Code (GSOC) 2025 project with one
-  project aiming to fully support the LASI network card and NCR 710 SCSI
+- `Qemu v10 was released <https://wiki.qemu.org/ChangeLog/10.0>`__
+- PA-RISC Linux project participates in the Google Summer of Code (GSOC) 2025 project with one
+  QEMU project aiming to fully support the LASI network card and NCR 710 SCSI
   controller: https://wiki.qemu.org/Google_Summer_of_Code_2025
 
 Mar 2025
