@@ -459,9 +459,10 @@ Debian packages / Userspace work
 
 - Debian packages with NaN issues: libime, `capnproto
   <https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=781787>`__,
-  `python-shapely <https://buildd.debian.org/status/fetch.php?pkg=python-shapely&arch=hppa&ver=2.0.6-4%2Bb1&stamp=1735949853&raw=0>`__,
-      00800000017FF80000000000007FF80000000000007FF8000000000000
-  vs. 00800000017FF7FFFFFFFFFFFF7FF7FFFFFFFFFFFF7FF7FFFFFFFFFFFF
+  `python-shapely <https://buildd.debian.org/status/fetch.php?pkg=python-shapely&arch=hppa&ver=2.0.6-4%2Bb1&stamp=1735949853&raw=0>`__
+  .. code-block:: pycon
+  *     00800000017FF80000000000007FF80000000000007FF8000000000000
+  * vs. 00800000017FF7FFFFFFFFFFFF7FF7FFFFFFFFFFFF7FF7FFFFFFFFFFFF
 
 palo (PA-RISC Boot Loader)
 --------------------------
@@ -1951,6 +1952,17 @@ Kernel 6.14
 - `parisc: Temporarily disable jump label support <https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=3599bae489d86fbabe039f9a2ab5472ffb04f7f1>`__ (backported to v6.12+)
 - parisc: Remove memcpy_toio and memset_io
 - `parisc: add vdso linker script to 'targets' instead of extra-y <https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=36b2f3aefc486ea2f773db5c42539a52e1fcbcb3>`__
+
+Kernel 6.15
+-----------
+
+- Input: gscps2 - Describe missing function parameters
+- parisc: led: Use scnprintf() to avoid string truncation warning
+- parisc: Fix formatting errors in io.c
+- parisc: Remove memcpy_fromio
+- parisc: perf: use named initializers for struct miscdevice
+- parisc: PDT: Fix missing prototype warning
+- `parisc: Fix double SIGFPE crash <https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=de3629baf5a33af1919dec7136d643b0662e85ef>`__ (backported to all)
 
 .. _done_items:
 
