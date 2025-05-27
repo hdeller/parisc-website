@@ -100,7 +100,9 @@ PA-RISC Linux NEWS
 
 May 2025
 ~~~~~~~~
-- `Fixed a kernel bug which led to SIGFPE crashes <https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=de3629baf5a33af1919dec7136d643b0662e85ef>`__
+- Dave was able to `fix some bugs in libunwind <https://github.com/libunwind/libunwind/issues/874>`__
+- Helge `fixed a kernel bug which led to SIGFPE crashes <https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=de3629baf5a33af1919dec7136d643b0662e85ef>`__
+  and the `relevant parts in QEMU <https://gitlab.com/qemu-project/qemu/-/commit/bd02070353f84354c03e3d16287e9e80e0875ec1>`__
 
 Apr 2025
 ~~~~~~~~
