@@ -80,6 +80,11 @@ HP 9000 Chipset Documentation
       - June 3, 1999
       - LASI Core IO Device ERS (eg in 712/715/725/A180/B180/C360)
    - 
+      - :download:`82596CA.pdf <media/82596CA.pdf>`
+      - 776k
+      - November 1989
+      - LASI Network Interface Card (Intel 82596CA)
+   - 
       - :download:`hardball_ers.pdf <media/Hardball_ers.pdf>`
       - 4235k
       - November 2001
