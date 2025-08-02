@@ -1964,6 +1964,21 @@ Kernel 6.15
 - parisc: PDT: Fix missing prototype warning
 - `parisc: Fix double SIGFPE crash <https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=de3629baf5a33af1919dec7136d643b0662e85ef>`__ (backported to all)
 
+Kernel 6.16
+-----------
+
+- `parisc: Temporarily disable jump label support <https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=3599bae489d86fbabe039f9a2ab5472ffb04f7f1>`__ (backported to v6.12+)
+- `parisc: Check region is readable by user in raw_copy_from_user() <https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=91428ca9320edbab1211851d82429d33b9cd73ef>`__
+- parisc: Rename pte_needs_flush() to pte_needs_cache_flush() in cache.c
+- parisc: Define and use set_pte_at()
+- parisc: Try to fixup kernel exception in bad_area_nosemaphore path of do_page_fault()
+- parisc: Drop WARN_ON_ONCE() from flush_cache_vmap
+- `parisc: Revise gateway LWS calls to probe user read access <https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=f6334f4ae9a4e962ba74b026e1d965dfdf8cbef8>`__
+- `parisc: Revise __get_user() to probe user read access <https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=89f686a0fb6e473a876a9a60a13aec67a62b9a7e>`__
+- parisc: Makefile: fix a typo in palo.conf
+- `parisc: Makefile: explain that 64BIT requires both 32-bit and 64-bit compilers <https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=305ab0a748c52eeaeb01d8cff6408842d19e5cb5>`__
+
+
 .. _done_items:
 
 DONE items
