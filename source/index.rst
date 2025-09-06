@@ -98,6 +98,11 @@ Our sponsors
 PA-RISC Linux NEWS
 ------------------
 
+Sep 2025
+~~~~~~~~~
+- Maintenance update of `palo version 2.28 <https://git.kernel.org/pub/scm/linux/kernel/git/deller/palo.git/>`__
+  released.
+
 July 2025
 ~~~~~~~~~
 - `Dave fixed a kernel bug which allowed the kernel to access read-protected memory <https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=0905809b38bda1fa0b206986c44d846e46f13c1d>`__. This bug was found due to a testcase failure in the libunwind package.
