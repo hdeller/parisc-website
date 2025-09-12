@@ -333,6 +333,7 @@ External Resources
 - http://www.hpmuseum.net/collection_document.php - HP Computer Museum
 - http://computermuseum.informatik.uni-stuttgart.de/dev/hp9000_840/ - Uni Stuttgart Computermuseum - HP 9000/840 (first PA-RISC machine)
 - http://tenox.pdp-11.ru/hpux/ - HP/UX ressources
+- https://fsck.technology/software/HP/ - HP/UX ressources
 - http://psg.skinforum.org/hpux.html - Tin Ho's "Sys Admin Pocket Survival Guide - HP-UX"
 - http://www.mach-linux.org/ - OSF Mach-Linux
 - http://www.unixnerd.demon.co.uk/hp_unix.html - UnixNerds/HPUX
