@@ -39,20 +39,13 @@ Kernel
   - hung task crashes in usb_start_wait_urb/usb_kill_urb during shutdown
     when booting from usb or when using an usb network interface
 
-- STARTED: Add cacheflush(2) syscall (like ARC, CSKY, MIPS, and NIOS2),
-  add to glibc, gcc and update man-pages
+- STARTED: cacheflush(2) syscall was added to glibc, TODO: update man-pages
 
 - Fix palo on c3000 to load initrd > 32MB
 
 - Add parisc to https://www.qemu.org/docs/master/user/main.html#linux-user-space-emulator wiki
 
 - ipmi-sensors: crashes A500: "ipmi-sensors --sensor-types=fan"
-
-- DONE: latest kernel: maxcpus=1 works, nr_cpus=1 causes a crash. (patch sent)
-
-- DONE: can not use register 29 in ASM_EXCEPTIONTABLE_VAR in emulate_ldd
-  on 64bit kernel, `Fix is here
-  <https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=8b1d72395635af45410b66cc4c4ab37a12c4a831>`__
 
 - Setup BTLB on secondary CPUs on 32-bit kernel
 
@@ -108,18 +101,28 @@ Kernel
 - stifb: Fix HCRX text scrolling, missing functions? - see latest
   patches to stifb
 
-QEMU
-----
-
-Full-system emulation
-~~~~~~~~~~~~~~~~~~~~~
+QEMU full system emulation
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 - STARTED: Implement HPPA-64 support in qemu
 
-- STARTED: Implement CPU reset: resettable_class_set_parent_phases(rc, NULL, hppa_cpu_reset_hold, NULL,...) https://lists.nongnu.org/archive/html/qemu-devel/2024-10/msg04876.html
+- QEMU: Add support for running MPE with https://www.openpa.net (& Craig Lalley <mr_lalley@yahoo.com>)
+
+- STARTED: Implement CPU reset: resettable_class_set_parent_phases(rc, NULL, hppa_cpu_reset_hold, NULL,...)
+  https://lists.nongnu.org/archive/html/qemu-devel/2024-10/msg04876.html
 
 - Mark Cave-Ayland <mark.cave-ayland@ilande.co.uk> offers to do contract
   work for QEMU through his company.
+
+- Soumyajyotii Ssarkar <soumyajyotisarkar23@gmail.com> works on Google-Summer-of-Code 2025 projects:
+  - STARTED: Finish LASI and 82596 NIC for QEMU -> https://github.com/hdeller/qemu-hppa/commits/lasi
+
+  - STARTED: ncr53c710 driver from amiga: https://github.com/tonioni/WinUAE/blob/master/qemuvga/lsi53c710.cpp
+
+- Check "HPPA support for IGNITE-UX install discs" for HP Logic
+    Analyzer 16700A (Mail from Keith Monahan <keith@techtravels.org> Sept 2020)
+
+- QEMU: Implement 32/24 bit HCRX graphics
 
 - Fix migration of VMs (noticed by: Mark Cave-Ayland
   <mark.cave-ayland@ilande.co.uk>): Boot a qcow2 image in QEMU using the
@@ -128,24 +131,10 @@ Full-system emulation
   "foo", Type "quit" to exit QEMU, Add "-loadvm foo" to your QEMU
   command line and launch QEMU, Unpause the VM
 
-- STARTED: Finish LASI and 82596 NIC for QEMU ->
-  https://github.com/hdeller/qemu-hppa/commits/lasi
-  NOTE: Soumyajyotii Ssarkar <soumyajyotisarkar23@gmail.com> works on this as Google-Summer-of-Code 2025 project
-
-- STARTED: ncr53c710 driver from amiga:
-  https://github.com/tonioni/WinUAE/blob/master/qemuvga/lsi53c710.cpp
-  NOTE: Soumyajyotii Ssarkar <soumyajyotisarkar23@gmail.com> works on this as Google-Summer-of-Code 2025 project
-
-  - Check "HPPA support for IGNITE-UX install discs" for HP Logic
-    Analyzer 16700A (Mail from Keith Monahan <keith@techtravels.org>
-    Sept 2020)
-
 QEMU user-mode emulation
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
 - Building curl hangs at end of package build in stunnel
-
-- STARTED: kronosnet - port SCTP to qemu
 
 - ONGOING: qemu-user brk() fixes:
   https://lists.nongnu.org/archive/html/qemu-devel/2023-07/msg04657.html
@@ -171,17 +160,7 @@ QEMU user-mode emulation
 
   - check vnlog: very easy testcase for clone/fork issue, see mail 07-31-2023.
 
-- Impossible: Implement io_submit() syscalls (not portable syscalls).
-
-QEMU system mode issues
-~~~~~~~~~~~~~~~~~~~~~~~
-
-- QEMU: Add support for running MPE with https://www.openpa.net (& Craig
-  Lalley <mr_lalley@yahoo.com>)
-
-- QEMU: Implement 32/24 bit HCRX graphics
-
-- QEMU-user: FTBFS on 32-bit non-LFS arches : rrdtool, devscripts, ohcount, guile-ssh...
+- STARTED: kronosnet - port SCTP to qemu
 
 - fix openvswitch on qemu
 
@@ -189,20 +168,18 @@ QEMU system mode issues
   facility returned an unexpected error code., xclock_gettime.c:29:
   clock_gettime (0): Unknown error -1)
 
+- Impossible: Implement io_submit() syscalls (not portable syscalls).
+
 glibc
 -----
 
-- glibc: add backtrace() function, problems when building elfutils
+- add backtrace() function, problems when building elfutils
   package: http://buildd.debian-ports.org/status/package.php?p=elfutils&suite=sid
   and dovecot https://buildd.debian.org/status/fetch.php?pkg=dovecot&arch=hppa&ver=1%3A2.3.19.1%2Bdfsg1-2%2Bb1&stamp=1666756774&raw=0
 
 - STARTED: Finfish MADV transition in glibc:
   https://sourceware.org/pipermail/libc-alpha/2023-February/145452.html
   , dietlibc: https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=1030998
-
-- Add backtrace() function to glibc -> needed to build dovecot package
-
-- DONE: Improve text on https://www.openpa.net
 
 - STARTED: port :doc:`Gccgo_for_hppa <gccgo_for_hppa>` gccgo -> https://github.com/hdeller/gcc/tree/gccgo-hppa
 
@@ -239,13 +216,6 @@ Debian
   debian-installer (import from old Git-Backup, Alex Wirt?) - Mail from
   Adrian 05/30/23
 
-- STARTED: Fix initramfs: Bug#1027915: systemd requires /run to be
-  mounted with a minimum size of 20MB:
-  https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=1027915, patch sent
-
-- DONE: Activate LARGE FILE SUPPORT generally on hppa:
-  https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=1020335
-
 gcc compiler
 ------------
 
@@ -260,6 +230,7 @@ gcc compiler
 
 - STARTED: why is GNU AS so slow, e.g. when building freeorion,
   quantlib-swig or yade packages, testcases: openturns
+  see https://sourceware.org/bugzilla/show_bug.cgi?id=18427
 
 - SeaBIOS and palo: muldi3 and divdi3 (from libgcc.a) trashes fr22-fr25
   because of xmpyu instruction. Doesn't seem to have negative effect,
@@ -278,26 +249,23 @@ gcc compiler
 
 - http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=787192
 
-- https://sourceware.org/bugzilla/show_bug.cgi?id=18427
-
 - provide libphobos packages - gcc-defaults -
   http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=763103, Work by Dave:
   https://gcc.gnu.org/ml/gcc-testresults/2018-11/msg03460.html
 
-- gcc -> join 32- and 64bit compiler, make "-m64" work, get rid of
+- gcc -> join 32- and 64bit compiler, make "-m64" and "-m32" work and get rid of
   hppa64-linux-gnu-gcc
 
 - **64-bit userspace support (from Dave Anglin, Nick Hudson)**
 
-- 64-bit userspace, :doc:`Binutils <binutils>` 64-bit binutils needs to
-  be fixed to get multiple stub section support.
+  - 64-bit userspace, :doc:`Binutils <binutils>` 64-bit binutils needs to
+    be fixed to get multiple stub section support.
 
-- glibc port (hppa64 can use the generic thread code)
+  - hppa64 can use the generic glibc thread code
 
-- 64-bit support in gcc is probably pretty good as 64-bit HP-UX works
-  fine.
+  - 64-bit support in gcc is probably pretty good as 64-bit HP-UX works fine.
 
-- gdb could be a problem due to a lack of a maintainer.
+  - gdb could be a problem due to a lack of a maintainer.
 
 - debian parisc perl bug
   (http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=721537) shows that
@@ -2047,6 +2015,9 @@ Debian kernel / Generic Kernel bugs fixed
   - DONE: Implement ARCH_WANT_DEFAULT_TOPDOWN_MMAP_LAYOUT as in https://lwn.net/ml/linux-kernel/20190724055850.6232-14-alex@ghiti.fr/
   - DONE: Add eBPF JIT compiler (in kernel 6.6)
   - DONE: kernel >= 6.1.5 fails to boot on panama, boots works with "no-alternatives" boot option, Reason: flush_dcache_page() re-enabled the IRQs which led to the spinlock hang in aio_complete(), fix: https://lore.kernel.org/linux-parisc/ZGyawdtBhNnvvTv3@shell.armlinux.org.uk/T/#m96bc8e874d76b3b7bab8b40954b68e6cfb81ee2b, fix backported to kernels >= 5.18, bug was in arm and nios2 arches too.
+  - DONE: latest kernel: maxcpus=1 works, nr_cpus=1 causes a crash. (patch sent)
+  - DONE: can not use register 29 in ASM_EXCEPTIONTABLE_VAR in emulate_ldd on 64bit kernel, `Fix is here
+    <https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=8b1d72395635af45410b66cc4c4ab37a12c4a831>`__
 
 - Debian installer:
 
@@ -2054,6 +2025,9 @@ Debian kernel / Generic Kernel bugs fixed
   - DONE: Build real debian-installer CD. See: https://wiki.debian.org/Simple-CDD/Howto
   - DONE: we need a kernel debian package (3.10 based or higher)
   - DONE: `palo-installer: fix palo entry "root=/dev/sda5" to become "root=UUID=XXXX" <http://anonscm.debian.org/cgit/d-i/attic/palo-installer.git/>`__
+  - DONE: Fix initramfs: Bug#1027915: systemd requires /run to be mounted with a minimum size of 20MB:
+    https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=1027915, patch sent
+
 
 - binutils:
 
@@ -2096,6 +2070,9 @@ Debian kernel / Generic Kernel bugs fixed
   - DONE: Why does mc hangs when exiting with F10? - https://midnight-commander.org/ticket/3887 - endianess bug in mc source code
   - DONE: capnproto - testsuite was wrong: PARISC uses mips-floatingpoint NANs - https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=781787
   - DONE: fix strace in debian: https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=1030587 -> ask to switch to v6.4 instead
+  - DONE: Activate LARGE FILE SUPPORT generally on hppa: https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=1020335
+    - QEMU-user failed to build on 32-bit non-LFS arches: rrdtool, devscripts, ohcount, guile-ssh...
+
 
 - QEMU:
 
@@ -2183,6 +2160,7 @@ parisc-linux.org Homepage and Debian build server infrastructure work
   - DONE: Domain owner before: Matt Taggart <matt@lackof.org>, Expiration Date:09-Aug-2014; Since August 2014 is Helge Deller domain owner of parisc-linux.org
   - DONE: DNS takeover by Thibaut Varenet on 11/11/2013 - see: http://article.gmane.org/gmane.linux.ports.parisc/5478
   - DONE: former Server administrator of parisc-linux.org: Dann Frazier - dannf@dannf.org, former technical contact at HP: brett.johnson@hp.com, Since August 2014 administrator/owner: Helge Deller
+- DONE: Improve text on https://www.openpa.net (2025)
 
 .. _linus_torvalds_talking_or_working_about_parisc:
 
