@@ -72,9 +72,7 @@ Kernel
 
 - STARTED: graphics mmap: Make mapping aliasing physical memory.
 
-- STARTED: Visualizefx driver
-
-- `Visualize FX framebuffer/DRM support (by Sven Schnelle) <https://patchwork.kernel.org/project/linux-parisc/patch/20211031204952.25678-2-svens@stackframe.org/>`__
+- STARTED: Visualizefx driver- `Visualize FX framebuffer/DRM support (by Sven Schnelle) <https://patchwork.kernel.org/project/linux-parisc/patch/20211031204952.25678-2-svens@stackframe.org/>`__
 
 - trace irq flags - http://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=24131a61ec8c2d83431cb818281d3c9db986ab08
 
@@ -115,12 +113,13 @@ QEMU full system emulation
   work for QEMU through his company.
 
 - Soumyajyotii Ssarkar <soumyajyotisarkar23@gmail.com> works on Google-Summer-of-Code 2025 projects:
+
   - STARTED: Finish LASI and 82596 NIC for QEMU -> https://github.com/hdeller/qemu-hppa/commits/lasi
 
   - STARTED: ncr53c710 driver from amiga: https://github.com/tonioni/WinUAE/blob/master/qemuvga/lsi53c710.cpp
 
-- Check "HPPA support for IGNITE-UX install discs" for HP Logic
-    Analyzer 16700A (Mail from Keith Monahan <keith@techtravels.org> Sept 2020)
+- Check "HPPA support for IGNITE-UX install discs" for HP Logic Analyzer 16700A
+  (Mail from Keith Monahan <keith@techtravels.org> Sept 2020)
 
 - QEMU: Implement 32/24 bit HCRX graphics
 
@@ -2164,8 +2163,8 @@ parisc-linux.org Homepage and Debian build server infrastructure work
 
 .. _linus_torvalds_talking_or_working_about_parisc:
 
-Linus Torvalds talking or working about parisc
-----------------------------------------------
+Linus Torvalds talking about parisc
+-----------------------------------
 
 - https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=19b9ad67310ed2f685062a00aec602bec33835f0
 - about atomics in parisc and sparc: https://lore.kernel.org/lkml/CAHk-=wispSt+JezguriGPKnJ0xOUWG_LFDgaM-NVJu6cVa+-xw@mail.gmail.com/
