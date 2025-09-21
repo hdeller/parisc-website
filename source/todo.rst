@@ -2,19 +2,23 @@
 TODO
 ====
 
-PA-RISC status and TODO 2024-04-30
+PA-RISC status and TODO 2025-09-21
 ==================================
 
 Kernel
 ------
 
+- STARTED: Fix kernel: make ARCH=parisc tools/perf, needed by sysprof-48 and elfutils packages
+
+- convert parisc arch code to use GENERIC_ENTRY
+
 - Check graphics drivers / VisualizeFX with drivers from NetBSD - see mail thread
   "Graphics support" from Michael Lorenz on 12/16/24 https://lore.kernel.org/linux-parisc/20241216064156.6bbe1330@bushmills/
   Note: NetBSD drm manpage at https://man.netbsd.org/drm.4 says:
   drm is large and complicated and has no shortage of bugs.  On systems where
-  graphics is not important, you may wish to use userconf(4) to dis- able the
+  graphics is not important, you may wish to use userconf(4) to disable the
   special-purpose drm drivers for your graphics device and fall back to vga(4) or
-  genfb(4) with the default display configuration pro- vided by firmware.
+  genfb(4) with the default display configuration provided by firmware.
 
 - Implement RUST (https://github.com/rust-lang/libc/pull/3542)
 
@@ -22,7 +26,7 @@ Kernel
   - https://github.com/rust-lang/rustc_codegen_gcc/issues/49
   - https://github.com/rust-lang/rustc_codegen_gcc/blob/master/Readme.md
 
-- Port python-greenlet, needed by debian-installer
+- Port python-greenlet, needed by debian-installer (complicated!)
 
 - QEMU testing, see mail from Guenter Roeck (12/6/23):
 
@@ -60,8 +64,6 @@ Kernel
 
 - Add core-objtool for parisc -
   http://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=26660a4046b171a752e72a1dd32153230234fe3a
-
-- Fix kernel: make ARCH=parisc tools/perf
 
 - Enhance PDC_CHASSIS driver to detect and report FAN and PSU issues.
 
@@ -128,9 +130,11 @@ Full-system emulation
 
 - STARTED: Finish LASI and 82596 NIC for QEMU ->
   https://github.com/hdeller/qemu-hppa/commits/lasi
+  NOTE: Soumyajyotii Ssarkar <soumyajyotisarkar23@gmail.com> works on this as Google-Summer-of-Code 2025 project
 
-- ncr53c710 driver from amiga:
+- STARTED: ncr53c710 driver from amiga:
   https://github.com/tonioni/WinUAE/blob/master/qemuvga/lsi53c710.cpp
+  NOTE: Soumyajyotii Ssarkar <soumyajyotisarkar23@gmail.com> works on this as Google-Summer-of-Code 2025 project
 
   - Check "HPPA support for IGNITE-UX install discs" for HP Logic
     Analyzer 16700A (Mail from Keith Monahan <keith@techtravels.org>
@@ -161,20 +165,13 @@ QEMU user-mode emulation
 
   - Check why raft package testcases fail
 
-  - It looks like haskell packages still fail on qemu (e.g.,
-    haskell-swish).
+  - It looks like haskell packages still fail on qemu (e.g., haskell-swish).
 
   - https://buildd.debian.org/status/fetch.php?pkg=qtwebsockets-opensource-src&arch=hppa&ver=5.15.10-2&stamp=1688842351&raw=0
 
-  - libtool: Dynamic ltdl runtime loading failure
+  - check vnlog: very easy testcase for clone/fork issue, see mail 07-31-2023.
 
-  - libtool FTBFS, Dynamic ltdl runtime loading,
-    https://buildd.debian.org/status/fetch.php?pkg=libtool&arch=hppa&ver=2.4.7-7&stamp=1691050219&raw=0
-
-  - check vnlog: very easy testcase for clone/fork issue, see mail
-    07-31-2023.
-
-- Implement io_submit() syscalls, probably not possible.
+- Impossible: Implement io_submit() syscalls (not portable syscalls).
 
 QEMU system mode issues
 ~~~~~~~~~~~~~~~~~~~~~~~
@@ -182,12 +179,9 @@ QEMU system mode issues
 - QEMU: Add support for running MPE with https://www.openpa.net (& Craig
   Lalley <mr_lalley@yahoo.com>)
 
-- QEMU/Kernel: Add diag() calls to emulate & speed up xchg() and cmp_xchg()
-
 - QEMU: Implement 32/24 bit HCRX graphics
 
-- QEMU-user: FTBFS on 32-bit non-LFS arches : rrdtool, devscripts,
-  ohcount, guile-ssh...
+- QEMU-user: FTBFS on 32-bit non-LFS arches : rrdtool, devscripts, ohcount, guile-ssh...
 
 - fix openvswitch on qemu
 
@@ -198,7 +192,11 @@ QEMU system mode issues
 glibc
 -----
 
-- STARTED: Finfish MADV transition in glibc: glibc:
+- glibc: add backtrace() function, problems when building elfutils
+  package: http://buildd.debian-ports.org/status/package.php?p=elfutils&suite=sid
+  and dovecot https://buildd.debian.org/status/fetch.php?pkg=dovecot&arch=hppa&ver=1%3A2.3.19.1%2Bdfsg1-2%2Bb1&stamp=1666756774&raw=0
+
+- STARTED: Finfish MADV transition in glibc:
   https://sourceware.org/pipermail/libc-alpha/2023-February/145452.html
   , dietlibc: https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=1030998
 
@@ -245,16 +243,23 @@ Debian
   mounted with a minimum size of 20MB:
   https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=1027915, patch sent
 
-- STARTED: Activate LARGE FILE SUPPORT generally on hppa:
+- DONE: Activate LARGE FILE SUPPORT generally on hppa:
   https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=1020335
 
 gcc compiler
 ------------
 
+- gcc: Add \_builtin_thread_pointer() and
+  \_builtin_set_thread_pointer(), e.g.:
+  https://gcc.gnu.org/ml/gcc-patches/2012-07/msg00428.html for glibc:
+  ports/sysdeps/hppa/nptl/tls.h \__set_cr27()
+
+- implement gcc builtins for break asm, like on other platforms, for usage in kernel
+
 - Why is compiling fife so slow with cc1plus?
 
-- asked Dave to implement gcc builtins for break asms, like on other
-  platforms, for usage in kernel
+- STARTED: why is GNU AS so slow, e.g. when building freeorion,
+  quantlib-swig or yade packages, testcases: openturns
 
 - SeaBIOS and palo: muldi3 and divdi3 (from libgcc.a) trashes fr22-fr25
   because of xmpyu instruction. Doesn't seem to have negative effect,
@@ -262,23 +267,46 @@ gcc compiler
   iodc_entry(), or libgcc should be fixed to not use floating point
   instructions.
 
-- STARTED: Port grub2 to hppa? -> https://github.com/hdeller/grub
-
 - INEQUIVALENT ALIASES occur building gnuradio on debian.
 
-- STARTED: convert old-style rtc driver drivers/input/misc/hp_sdc_rtc.c
-  to new RTC model, remove the procfs and miscdevice interfaces first
-  and replace the ioctl with a struct rtc_class_ops. Arnd Bergmann can
-  review those patches, but Alexandre and Alessandro are the ones who
-  would merge them once the driver is moved to drivers/rtc. (Mail from
-  Arnd Bergmann, 28.04.2016) - see https://patchwork.kernel.org/patch/10701397/
+- \_mcount can be optimized (smaller) by not subtracting offset)
 
-- Add some cond_resched() calls to avoid RCU stalls, see commit
-  2a8bc5316adc998951e8f726c31e231a6021eae2
+- check if we can use -fentry from gcc for \_mcount optimization
 
-- Check if https://lkml.org/lkml/2020/7/23/1246 was added to avoid TLB
-  stalls (commits https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=c6fe44d96fc1536af5b11cd859686453d1b7bfd1
-  and https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=2a9127fcf2296674d58024f83981f40b128fffea) - kernel v5.9 seems good.
+- put PLABELS into read-only section (gcc function pa_reloc_rw_mask()
+  needs modification, see "section mismatches" mails, 11.09.2017)
+
+- http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=787192
+
+- https://sourceware.org/bugzilla/show_bug.cgi?id=18427
+
+- provide libphobos packages - gcc-defaults -
+  http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=763103, Work by Dave:
+  https://gcc.gnu.org/ml/gcc-testresults/2018-11/msg03460.html
+
+- gcc -> join 32- and 64bit compiler, make "-m64" work, get rid of
+  hppa64-linux-gnu-gcc
+
+- **64-bit userspace support (from Dave Anglin, Nick Hudson)**
+
+- 64-bit userspace, :doc:`Binutils <binutils>` 64-bit binutils needs to
+  be fixed to get multiple stub section support.
+
+- glibc port (hppa64 can use the generic thread code)
+
+- 64-bit support in gcc is probably pretty good as 64-bit HP-UX works
+  fine.
+
+- gdb could be a problem due to a lack of a maintainer.
+
+- debian parisc perl bug
+  (http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=721537) shows that
+  mmap on parisc linux is horribly inefficient. We allocate huge maps
+  for small files. This should be improved. Mailthread: " parisc mmap:
+  private file maps",
+  http://www.spinics.net/lists/linux-parisc/msg05083.html or
+  https://rt.perl.org/Public/Bug/Display.html?id=119567
+  https://rt.perl.org/Public/Bug/Display.html?id=119567
 
 JAVA
 ----
@@ -313,58 +341,22 @@ Rust language
 - In debian, stunnel4 requires python-cryptography package, and that was
   needed by something else I forgot...
 
-gcc compiler
-------------
-
-- \_mcount can be optimized (smaller) by not subtracting offset)
-
-- check if we can use -fentry from gcc for \_mcount optimization
-
-- put PLABELS into read-only section (gcc function pa_reloc_rw_mask()
-  needs modification, see "section mismatches" mails, 11.09.2017)
-
-- gcc: Add \_builtin_thread_pointer() and
-  \_builtin_set_thread_pointer(), e.g.:
-  https://gcc.gnu.org/ml/gcc-patches/2012-07/msg00428.html for glibc:
-  ports/sysdeps/hppa/nptl/tls.h \__set_cr27()
-
-- STARTED: why is GNU AS so slow, e.g. when building freeorion,
-  quantlib-swig or yade packages, testcases: openturns
-
-- http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=787192
-
-- https://sourceware.org/bugzilla/show_bug.cgi?id=18427
-
-- provide libphobos packages - gcc-defaults -
-  http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=763103, Work by Dave:
-  https://gcc.gnu.org/ml/gcc-testresults/2018-11/msg03460.html
-
-- gcc -> join 32- and 64bit compiler, make "-m64" work, get rid of
-  hppa64-linux-gnu-gcc
-
-- **64-bit userspace support (from Dave Anglin, Nick Hudson)**
-
-- 64-bit userspace, :doc:`Binutils <binutils>` 64-bit binutils needs to
-  be fixed to get multiple stub section support.
-
-- glibc port (hppa64 can use the generic thread code)
-
-- 64-bit support in gcc is probably pretty good as 64-bit HP-UX works
-  fine.
-
-- gdb could be a problem due to a lack of a maintainer.
-
-- debian parisc perl bug
-  (http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=721537) shows that
-  mmap on parisc linux is horribly inefficient. We allocate huge maps
-  for small files. This should be improved. Mailthread: " parisc mmap:
-  private file maps",
-  http://www.spinics.net/lists/linux-parisc/msg05083.html or
-  https://rt.perl.org/Public/Bug/Display.html?id=119567
-  https://rt.perl.org/Public/Bug/Display.html?id=119567
-
 kernel work
 -----------
+
+- STARTED: convert old-style rtc driver drivers/input/misc/hp_sdc_rtc.c
+  to new RTC model, remove the procfs and miscdevice interfaces first
+  and replace the ioctl with a struct rtc_class_ops. Arnd Bergmann can
+  review those patches, but Alexandre and Alessandro are the ones who
+  would merge them once the driver is moved to drivers/rtc. (Mail from
+  Arnd Bergmann, 28.04.2016) - see https://patchwork.kernel.org/patch/10701397/
+
+- Add some cond_resched() calls to avoid RCU stalls, see commit
+  2a8bc5316adc998951e8f726c31e231a6021eae2
+
+- Check if https://lkml.org/lkml/2020/7/23/1246 was added to avoid TLB
+  stalls (commits https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=c6fe44d96fc1536af5b11cd859686453d1b7bfd1
+  and https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=2a9127fcf2296674d58024f83981f40b128fffea) - kernel v5.9 seems good.
 
 - ALPHA processor port:
 
@@ -384,8 +376,6 @@ kernel work
 
   see: https://raphaelhertzog.com/2011/08/01/understanding-dpkgs-file-overwrite-error/
 
-- Kernel: Hard to solve outstanding issues
-
 - megaraid on my rp5470 hangs at boot (maybe because SCSI chassis not
   connected)? -> use new megaraid driver for debian -> maybe patch
   https://patchwork.kernel.org/patch/7738911/ needed to enable PCI-PCI
@@ -397,9 +387,6 @@ kernel work
   "Radeon R5xx Acceleration" -
   http://www.x.org/docs/AMD/R5xx_Acceleration_v1.1.pdf and generic:
   http://www.botchco.com/agd5f/?p=50
-
-- Kernel: still missing Linux kernel development (no patches available
-  yet or maybe not possible to implement):
 
 - maybe: optimize flush_dcache_page() implementation like sparc. See
   Documentation/cachetlb.txt, e.g. used in aio subsystem
@@ -416,7 +403,7 @@ kernel work
 - disable FP-register save/restore at kernel entry? -
   https://patchwork.kernel.org/patch/3975291/
 
-- enable 16k/64k kernel page sizes (still cacheflushing-issues with SCSI
+- very Low prio: enable 16k/64k kernel page sizes (still cacheflushing-issues with SCSI
   driver, additional work in glibc needed to deal with >4k page size,
   e.g. ld-loader alignments of data/code segments)
 
@@ -427,15 +414,13 @@ kernel work
 Debian packages / Userspace work
 --------------------------------
 
+- STARTED: Port grub2 to hppa? -> https://github.com/hdeller/grub
+
 - Various big endian issues, see mail thread "s390x architecture status?": https://lists.debian.org/debian-devel/2024/10/msg00295.html
 
 - WebKitGTK still builds in s390x, but the Skia graphics library does not support big-endian machines so if the Cairo backend is ever dropped then we probably won't be able to support s390x any longer:  https://github.com/WebKit/WebKit/blob/webkitgtk-2.47.1/Source/ThirdParty/skia/include/private/base/SkLoadUserConfig.h#L56
 
 - teach "blkid" about palo partition
-
-- glibc: add backtrace() function, problems when building elfutils
-  package: http://buildd.debian-ports.org/status/package.php?p=elfutils&suite=sid
-  and dovecot https://buildd.debian.org/status/fetch.php?pkg=dovecot&arch=hppa&ver=1%3A2.3.19.1%2Bdfsg1-2%2Bb1&stamp=1666756774&raw=0
 
 - Circular dependency problems with kde packages caused by vlc and
   ffmpeg (Dave)
