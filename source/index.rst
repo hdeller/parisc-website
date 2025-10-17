@@ -104,6 +104,7 @@ Oct 2025
 - Sven Schnelle and Dave Anglin started fixing gcc, binutils and the Linux kernel to allow building 64-bit shared applications.
 - `Gabriel Brookman <mailto:brookmangabriel@gmail.com>`__ posted a `patch for QEMU to fix wrong emulation of fmpyadd <https://patchew.org/QEMU/20251009-hppa-correct-fmpyadd-size-bit-decoding-v1-1-f63bb6c3290c@gmail.com/>`__.
 - `Peter Maydell <mailto:peter.maydell@linaro.org>`__ provided a `fix for the emulation of the FP registers <https://patchew.org/QEMU/20251017085350.895681-1-peter.maydell@linaro.org/>`__ in QEMU.
+- `SeaBIOS-hppa v19 with support for 715 machine released <https://github.com/hdeller/seabios-hppa/releases/tag/seabios-hppa-v19>`__.
 
 Sep 2025
 ~~~~~~~~~
