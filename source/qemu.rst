@@ -331,33 +331,26 @@ Linux
 Ready-to-run Debian Linux QEMU images for parisc
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Download Debian-12 hard disc image::
+Download latest available Debian hard disc image from http://backup.parisc-linux.org/qemu.
+The file debian-sid.hdd.img.bz2 is usually a symlink to the latest avaiable image::
 
-    wget http://dellerweb.de/qemu/debian-12-hdd-2023.img.bz2  # Debian 12 image
+    wget http://backup.parisc-linux.org/qemu/debian-sid.hdd.img.bz2
 
 Unzip Image::
 
-    bunzip2 debian-12-hdd-2023.img.bz2  # Unzip Debian 12 image
-
-Download Debian-10 hard disc image::
-
-    wget http://dellerweb.de/qemu/debian-10-hdd.img.bz2  # Debian 10 image
-
-Unzip image::
-
-    bunzip2 debian-10-hdd.img.bz2  # Unzip Debian 10 image
+    bunzip2 debian-sid.hdd.img.bz2  # Unzip Debian image
 
 Run qemu:
 
 Networking variant - with user-mode networking::
 
-    qemu-system-hppa -drive file=debian-12-hdd-2023.img -nographic \
+    qemu-system-hppa -drive file=debian-sid.hdd.img -nographic \
       -serial mon:stdio -accel tcg,thread=multi -smp cpus=4 \
       -netdev user,id=net0 -device tulip,netdev=net0
 
 Non-networking variant::
 
-    qemu-system-hppa -drive file=debian-12-hdd-2023.img -nographic \
+    qemu-system-hppa -drive file=debian-sid.hdd.img-nographic \
       -serial mon:stdio -accel tcg,thread=multi -smp cpus=4
 
 .. note::
