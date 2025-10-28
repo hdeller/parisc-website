@@ -100,6 +100,7 @@ PA-RISC Linux NEWS
 
 Oct 2025
 ~~~~~~~~~
+- `Peter Maydell <mailto:peter.maydell@linaro.org>`__ posted a `patch for QEMU to fix floating point exception flags <https://patchew.org/QEMU/20251017085350.895681-1-peter.maydell@linaro.org>`__.
 - `Soumyajyotii Ssarkar <mailto:soumyajyotisarkar23@gmail.com>`__ finished his `Google Summer of Code 2025 project and developed QEMU drivers for the LASI network and SCSI controller <https://gist.github.com/RemZapCypher/5b64559a8112c6f11e3bcf9668ebfa57>`__. His code will be merged soon upstream.
 - Sven Schnelle and Dave Anglin started fixing gcc, binutils and the Linux kernel to allow building 64-bit shared applications.
 - `Gabriel Brookman <mailto:brookmangabriel@gmail.com>`__ posted a `patch for QEMU to fix wrong emulation of fmpyadd <https://patchew.org/QEMU/20251009-hppa-correct-fmpyadd-size-bit-decoding-v1-1-f63bb6c3290c@gmail.com/>`__.
