@@ -49,6 +49,154 @@ be done over the built-in e1000 LAN interface once configured.
 
 *Thanks to Matt Turner <mattst88@gmail.com> for above info.*
 
+
+DB25 to 3x DB9 serial console/ups/remote cable
+----------------------------------------------
+
+Some HP servers use a 25 pin female connector for BMC. This port
+shares three ports: The serial console, a remote port and a UPS
+port. Often these cables are missing, so here's the pinout if you
+want to make one.
+
+.. list-table::
+  :header-rows: 1
+
+  -
+
+     - DB25 Pin
+     - DB9 Cable
+     - DB9 Pin
+     - Name
+  -
+
+     - 1
+     -
+     -
+     -
+
+  -
+     - 2
+     - Console
+     - 3
+     - TXD
+  -
+     - 3
+     - Console
+     - 2
+     - RXD
+  -
+     - 4
+     - Console
+     - 7
+     - RTS
+  -
+     - 5
+     - Console
+     - 8
+     - CTS
+  -
+     - 6
+     - UPS
+     - 6
+     - DSR
+  -
+     - 7
+     - Console
+     - 5
+     - GND
+  -
+     - 8
+     - UPS
+     - 1
+     - DCD
+  -
+     - 9
+     - Remote
+     - 3
+     - TXD
+  -
+     - 10
+     - Remote
+     - 7
+     - RTS
+  -
+     - 11
+     - Remote
+     - 4
+     - DTR
+  -
+     - 12
+     - Remote
+     - 2
+     - RXD
+  -
+     - 13
+     - Remote
+     - 8
+     - CTS
+  -
+     - 14
+     - UPS
+     - 3
+     - TXD
+  -
+     - 15
+     - UPS
+     - 7
+     - RTS
+  -
+     - 16
+     - UPS
+     - 5
+     - GND
+  -
+     - 17
+     - UPS
+     - 2
+     -  RXD
+  -
+     - 18
+     - UPS
+     - 8
+     - CTS
+  -
+     - 19
+     -
+     -
+     -
+  -
+     - 20
+     - UPS
+     - 4
+     - DTR
+  -
+     - 21
+     - Remote
+     - 5
+     - GND
+  -
+     - 22
+     - UPS
+     - 9
+     - RI
+  -
+     - 23
+     - Remote
+     - 1
+     - DCD
+  -
+     - 24
+     - Remote
+     - 6
+     - DSR
+  -
+     - 25
+     - Remote
+     - 9
+     - RI
+
+
+
 Reading IPMI data in Linux
 --------------------------
 
