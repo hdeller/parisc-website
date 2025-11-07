@@ -1914,6 +1914,8 @@ Kernel 6.14
 - parisc: Remove memcpy_toio and memset_io
 - `parisc: add vdso linker script to 'targets' instead of extra-y <https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=36b2f3aefc486ea2f773db5c42539a52e1fcbcb3>`__
 
+.. _kernel_6.15:
+
 Kernel 6.15
 -----------
 
@@ -1925,11 +1927,18 @@ Kernel 6.15
 - parisc: PDT: Fix missing prototype warning
 - `parisc: Fix double SIGFPE crash <https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=de3629baf5a33af1919dec7136d643b0662e85ef>`__ (backported to all)
 
+.. _kernel_6.16:
+
 Kernel 6.16
 -----------
 
 - `parisc: Temporarily disable jump label support <https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=3599bae489d86fbabe039f9a2ab5472ffb04f7f1>`__ (backported to v6.12+)
 - `parisc: Check region is readable by user in raw_copy_from_user() <https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=91428ca9320edbab1211851d82429d33b9cd73ef>`__
+
+.. _kernel_6.17:
+
+Kernel 6.17
+-----------
 - parisc: Rename pte_needs_flush() to pte_needs_cache_flush() in cache.c
 - parisc: Define and use set_pte_at()
 - parisc: Try to fixup kernel exception in bad_area_nosemaphore path of do_page_fault()
@@ -1938,7 +1947,22 @@ Kernel 6.16
 - `parisc: Revise __get_user() to probe user read access <https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=89f686a0fb6e473a876a9a60a13aec67a62b9a7e>`__
 - parisc: Makefile: fix a typo in palo.conf
 - `parisc: Makefile: explain that 64BIT requires both 32-bit and 64-bit compilers <https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=305ab0a748c52eeaeb01d8cff6408842d19e5cb5>`__
+- parisc: Update comments in make_insert_tlb
 
+.. _kernel_6.18:
+
+Kernel 6.18
+-----------
+- parisc: Add __attribute_const__ to ffs()-family implementations
+- parisc: constify mmap_upper_limit() parameter
+- parisc: Remove spurious if statement from raw_copy_from_user()
+- parisc: don't reference obsolete termio struct for TC* constants
+- parisc: Report emulation faults via perf
+- parisc: Report software alignment faults via perf
+- parisc: Add initial kernel-side perf_event support
+- parisc: Firmware: Fix returned path for PDC_MODULE_FIND on older machines
+- parisc: Fix iodc and device path return values on old machines
+- parisc: Avoid crash due to unaligned access in unwinder
 
 .. _done_items:
 
