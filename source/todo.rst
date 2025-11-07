@@ -10,7 +10,7 @@ Kernel
 
 - STARTED: Fix kernel: make ARCH=parisc tools/perf, needed by sysprof-48 and elfutils packages
 
-- convert parisc arch code to use GENERIC_ENTRY
+- convert parisc arch code to use GENERIC_ENTRY, example for ppc: https://lwn.net/Articles/1044794/
 
 - Check graphics drivers / VisualizeFX with drivers from NetBSD - see mail thread
   "Graphics support" from Michael Lorenz on 12/16/24 https://lore.kernel.org/linux-parisc/20241216064156.6bbe1330@bushmills/
@@ -168,6 +168,15 @@ QEMU user-mode emulation
   clock_gettime (0): Unknown error -1)
 
 - Impossible: Implement io_submit() syscalls (not portable syscalls).
+
+Google Summer of Code (GSoC) ideas:
+-----------------------------------
+- rust port
+- Qemu missing drivers, e.g. SuperIO, PCI graphics, ..
+- Qemu add MPE support
+- Fix SeaBIOS wrt virtio drivers (fix endianess issues)
+- bring SeaBIOS back upstream, at least partly, e.g. ncr710
+- port openJDK
 
 glibc
 -----
