@@ -174,6 +174,7 @@ Google Summer of Code (GSoC) ideas:
 - rust port
 - Qemu missing drivers, e.g. SuperIO, PCI graphics, ..
 - Qemu add MPE support
+- port musl libc
 - Fix SeaBIOS wrt virtio drivers (fix endianess issues)
 - bring SeaBIOS back upstream, at least partly, e.g. ncr710
 - port openJDK
