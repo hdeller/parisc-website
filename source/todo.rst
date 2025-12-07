@@ -1965,6 +1965,19 @@ Kernel 6.18
 - parisc: Fix iodc and device path return values on old machines
 - parisc: Avoid crash due to unaligned access in unwinder
 
+.. _kernel_6.19:
+
+Kernel 6.19
+-----------
+- parisc: Drop linux/kernel.h include from asm/bug.h header
+- parisc: Drop padding fields and layers entries from inventory log
+- `parisc: Do not reprogram affinitiy on ASP chip <https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=dca7da244349eef4d78527cafc0bf80816b261f5>`__
+- parisc: remove unneeded semicolon in perf_regs.c
+- `parisc: entry.S: fix space adjustment on interruption for 64-bit userspace <https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=1aa4524c0c1b54842c4c0a370171d11b12d0709b>`__
+- parisc: Convert DMA map_page to map_phys interface
+- `parisc: entry: set W bit for !compat tasks in syscall_restore_rfi() <https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=5fb1d3ce3e74a4530042795e1e065422295f1371>`__
+
+
 .. _done_items:
 
 DONE items
