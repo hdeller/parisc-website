@@ -76,7 +76,7 @@ Our sponsors
   <https://www.openpa.net/systems/hp-visualize_j6000_j6700.html>`__ with
   2 x 750MHz PA8700 CPUs, 4GB RAM and a 72GB disc which is used as
   `Debian buildd and Porterbox machine "parisc"
-  <https://db.debian.org/machines.cgi?sortby=purpose&sortorder=dsc>`__ (Oct 2022)
+  <https://db.debian.org/machines.cgi?sortby=purpose&sortorder=dsc>`__ (Oct 2022 - Dec 2025)
 
 
 - `Roberto C. Sánchez <mailto:roberto@debian.org>`__ sponsored a `HP rp3410 server

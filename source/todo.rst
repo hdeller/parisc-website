@@ -1940,6 +1940,7 @@ Kernel 6.16
 
 Kernel 6.17
 -----------
+- NOTE: stable series does not boot on 64-bit kernel (https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=ee62ce7a1d90, fix in kernel 6.18)
 - parisc: Rename pte_needs_flush() to pte_needs_cache_flush() in cache.c
 - parisc: Define and use set_pte_at()
 - parisc: Try to fixup kernel exception in bad_area_nosemaphore path of do_page_fault()
@@ -1954,6 +1955,7 @@ Kernel 6.17
 
 Kernel 6.18
 -----------
+- `page_pool: Fix PP_MAGIC_MASK to avoid crashing on some 32-bit arches <https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=95920c2ed02bde551ab654e9749c2ca7bc3100e0>`__ (backported to 6.15+) **IMPORTANT**
 - parisc: Add __attribute_const__ to ffs()-family implementations
 - parisc: constify mmap_upper_limit() parameter
 - parisc: Remove spurious if statement from raw_copy_from_user()
