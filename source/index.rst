@@ -98,6 +98,11 @@ Our sponsors
 PA-RISC Linux NEWS
 ------------------
 
+Dec 2025
+~~~~~~~~~
+- The HP J6700 workstation which was sponsored by Cypress Technology Inc (Jesse Dougherty) and which was used as Debian buildd server "parisc" suddently broke after 3 years.  We are now looking for a new sponsor to replace that machine.
+- Waiting for release of QEMU v10.2.
+
 Oct 2025
 ~~~~~~~~~
 - `Peter Maydell <mailto:peter.maydell@linaro.org>`__ posted a `patch for QEMU to fix floating point exception flags <https://patchew.org/QEMU/20251017085350.895681-1-peter.maydell@linaro.org>`__.
