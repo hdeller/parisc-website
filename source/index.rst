@@ -100,8 +100,9 @@ PA-RISC Linux NEWS
 
 Dec 2025
 ~~~~~~~~~
+- `Michael Lorenz <mailto:macallan1888@gmail.com>`__ started on a :doc:`manual for programming the HCRX and PCI Visualize EG graphic cards <ngle_programming>`
+- `Qemu 10.2 was released. <https://wiki.qemu.org/ChangeLog/10.2>`__
 - The HP J6700 workstation which was sponsored by Cypress Technology Inc (Jesse Dougherty) and which was used as Debian buildd server "parisc" suddently broke after 3 years.  We are now looking for a new sponsor to replace that machine.
-- Waiting for release of QEMU v10.2.
 
 Oct 2025
 ~~~~~~~~~

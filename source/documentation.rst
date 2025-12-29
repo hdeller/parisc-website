@@ -52,6 +52,7 @@ Documentation
    locks.rst
    mono_porting.rst
    ngle.rst
+   ngle_programming.rst
    ols_parisc_bof_2006.rst
    pa-risc_linux_project_history.rst
    palo.rst
