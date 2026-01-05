@@ -178,6 +178,8 @@ Google Summer of Code (GSoC) ideas:
 - Fix SeaBIOS wrt virtio drivers (fix endianess issues)
 - bring SeaBIOS back upstream, at least partly, e.g. ncr710
 - port openJDK
+- 64-bit userspace (glibc/gcc)
+- python3.14 needs fixes to handle stack grows up (patch possibly available)
 
 glibc
 -----
