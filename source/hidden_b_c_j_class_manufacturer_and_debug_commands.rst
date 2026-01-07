@@ -5,9 +5,9 @@ Hidden B/C/J Class Manufacturer and DEBUG commands
 According to some PDC docs, there seems to be a "mode byte" in NVM
 storage. Values are probably:
 
-- Normal mode = ``0x4E``
-- MFG mode = ``0x4D``
-- Debug mode = ``0x44``
+- Normal mode = ``0x4E`` (ASCII N)
+- MFG mode = ``0x4D``  (ASCII M)
+- Debug mode = ``0x44`` (ASCII D)
 
 After repairing my J5000 (EEPROM was corrupted due to PDC experiments),
 the Bootloader showed some additional Entries::
@@ -109,4 +109,83 @@ the Bootloader showed some additional Entries::
         29  Enable proc call trace        OFF
         30  Always emit chassis codes     OFF
         31  Init mem system from ROM tableOFF
+
+
+
+====================================================
+Hidden rp3440/rp3410 Manufacturer and DEBUG commands
+====================================================
+
+The rp34x0 series has a "mode byte" as well:
+
+::
+
+ *** Manufacturing permissions ON ***
+    System is hp server series
+
+::
+
+ Service Menu: Enter command > ss_update
+
+ ---- SS_update Menu ---------------------------------------------------
+
+     Command                           Description
+     -------                           -----------
+     SERialNumb                        Change or update serial number
+     SYSMOdel                          Upgrade/downgrade system model
+     DIsplay                           Display the ss_update menu
+     MAin                              Display the main menu
+     HElp [<command>]                  Display help for specified command
+ -----
+ SS_update Menu: Enter command > sysmodel
+  
+ Choose a model for this system.
+ Type a number to choose model or the word "none".
+      1:  9000/800/rp3440 PA8800 2 sockets 4 cores (used if >800Mhz)
+      2:  9000/800/rp3440 PA8800 2 sockets 4 cores
+      3:  9000/800/rp3410 PA8800 1 socket  2 cores restricted speed DC-
+      4:  9000/800/rp3410 PA8800 1 socket  1 core restricted speed DC--
+      5:  9000/800/rp3440#1 PA8800 1 sockets 1 core
+      6:  9000/800/rp3440 PA8900 2 sockets 4 cores (used if >800Mhz)
+      7:  9000/800/rp3440 PA8900 2 sockets 4 cores
+      8:  9000/800/rp3410 PA8900 1 socket  2 cores restricted speed DC-
+      9:  9000/800/rp3410 PA8900 1 socket  1 core restricted speed DC--
+      10:  9000/800/rp3440#1 PA8900 1 sockets 1 core
+   none:  don't change it
+
+::
+
+ DeBug Menu: Enter command > EepromFlag
+     0  Use NVM copy of all flags  OFF    32  Spare                      OFF
+     1  Spare                      OFF    33  Spare                      OFF
+     2  Spare                      OFF    34  Skip Mem Quick SPD         OFF
+     3  Spare                      OFF    35  Bypass CPU Mismatch Check  OFF
+     4  No ROM Checksum            OFF    36  Spare                      OFF
+     5  Disable Early Self Tests   OFF    37  Ignore HALT_BOOT/allow bootOFF
+     6  Spare                      OFF    38  Spare                      OFF
+     7  Disable Late Self Tests    OFF    39  Spare                      OFF
+     8  DC Special Upgrade         OFF    40  Spare                      OFF
+     9  Spare                      OFF    41  Disable PdcDebugOut        OFF
+    10  Spare                      OFF    42  Spare                      OFF
+    11  Spare                      OFF    43  Disable BCH scroll control ON
+    12  Spare                      OFF    44  Init nvm config            OFF
+    13  Spare                      OFF    45  Spare                      OFF
+    14  Spare                      OFF    46  Spare                      OFF
+    15  Spare                      OFF    47  Spare                      OFF
+    16  Spare                      OFF    48  Spare                      OFF
+    17  Spare                      OFF    49  Spare                      OFF
+    18  Spare                      OFF    50  Spare                      OFF
+    19  Spare                      OFF    51  Spare                      OFF
+    20  Spare                      OFF    52  Bypass CPU order check     OFF
+    21  Spare                      OFF    53  Bypass CPU dual core deconfOFF
+    22  Spare                      OFF    54  Spare                      OFF
+    23  Spare                      OFF    55  Spare                      OFF
+    24  Spare                      OFF    56  Spare                      OFF
+    25  Spare                      OFF    57  Spare                      OFF
+    26  Spare                      OFF    58  Spare                      OFF
+    27  Spare                      OFF    59  Enable CEC tests           OFF
+    28  Spare                      OFF    60  Enable PDH tests           OFF
+    29  Spare                      OFF    61  Enable Dest mem tests      OFF
+    30  Spare                      OFF    62  Enable early CPU stests    OFF
+    31  Spare                      OFF    63  Enable late CPU stests     OFF
 
