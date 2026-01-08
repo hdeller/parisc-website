@@ -49,6 +49,16 @@ be done over the built-in e1000 LAN interface once configured.
 
 *Thanks to Matt Turner <mattst88@gmail.com> for above info.*
 
+How to access rp3410/rp3440 iLO
+-------------------------------
+
+Use telnet to connect to the BMC, which is called iLO (integrated Lights Out).
+You may use this iLO MP (HP Integrity) Advanced License Key:
+32Q8Y-XZVGQ-4SGJB-4KY3R-M9ZBN
+which allows you to configure SSH and Web-SSL access, sadly only with today
+outdated cyphers, which are due to security issues not any longer supported by
+todays browsers or ssh clients.
+
 
 DB25 to 3x DB9 serial console/ups/remote cable
 ----------------------------------------------
