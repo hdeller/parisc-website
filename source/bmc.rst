@@ -12,8 +12,8 @@ the system is powered.
    instead a GSP, see :doc:`Guardian Service Processor
    <guardian_service_processor>`.
 
-How to access
--------------
+How to access the C8000 workstation
+-----------------------------------
 
 When attached to the serial console, you can press **ESC (** and you
 will be able to interact with the BMC::
