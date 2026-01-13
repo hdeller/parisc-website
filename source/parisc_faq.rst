@@ -347,3 +347,11 @@ below. The following steps should help the rule out common failures:
    checked with "``dd if=/dev/cdrom | md5sum``" and the result should
    match the value of the original iso image.
 
+Serial console seems stuck and continues when pressing enter
+------------------------------------------------------------
+
+On newer Linux distributions the plymouth daemon tries to activate
+the serial console. This sometimes interferes with when using
+console on serial port.
+Either remove the plymouth daemon, or add "``plymouth.ignore-serial-consoles``"
+to the kernel boot command line.
