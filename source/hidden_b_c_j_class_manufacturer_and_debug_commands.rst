@@ -124,9 +124,9 @@ Server product numbers:
 
 When upgrading a rp3410 with 800 MHz PA8900 CPUs (Mako+) from 1 to 2 Cores it switches from
 
-- Storm Peak DC- Slow Mako+
+- Storm Peak DC- Slow Mako+     (hversion 0x8970)
 -   to
--  Storm Peak DC- Fast Mako+
+- Storm Peak DC- Fast Mako+     (hversion 0x8980)
 
 
 ::
