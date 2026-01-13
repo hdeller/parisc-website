@@ -98,6 +98,10 @@ Our sponsors
 PA-RISC Linux NEWS
 ------------------
 
+Jan 2026
+~~~~~~~~~
+- Activated second CPU core in the panama build server (rp3410) and updated PDC, MP and BMC firmware.
+
 Dec 2025
 ~~~~~~~~~
 - `Michael Lorenz <mailto:macallan1888@gmail.com>`__ started on a :doc:`manual for programming the HCRX and PCI Visualize EG graphic cards <ngle_programming>`
