@@ -60,6 +60,7 @@ Documentation
    pdc_chassis.rst
    pdc_chassis_log.rst
    pdc_stable_storage.rst
+   pirom_scratch_eeprom.rst
    processor_dependent_code.rst
    puffin_fest_2000.rst
    qemu.rst

@@ -101,6 +101,7 @@ PA-RISC Linux NEWS
 Jan 2026
 ~~~~~~~~~
 - Activated second CPU core in the panama build server (rp3410) and updated PDC, MP and BMC firmware.
+- Sven added some :doc:`PA8800/PA8900 PIROM/SCRATCH eeprom documentation <pirom_scratch_eeprom>`.
 
 Dec 2025
 ~~~~~~~~~
