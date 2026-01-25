@@ -116,8 +116,9 @@ the Bootloader showed some additional Entries::
 Hidden rp3440/rp3410 Manufacturer and DEBUG commands
 ====================================================
 
-Server product numbers:
-
+It is possible to permamently enable the second core of the CPU in a rp3410/rp4410.
+For that switch PDC firmware to manufacturing mode.
+Check which server product you own:
 - A9954A - PA 8900 two core, 1 processor core active
 - A7136B - PA 8800 800-MHz two core, 1 processor core active
 - A9770A - Activation for second 800 MHz PA 8800 core or PA 8900 processor core
@@ -164,7 +165,11 @@ When upgrading a rp3410 with 800 MHz PA8900 CPUs (Mako+) from 1 to 2 Cores it sw
       10:  9000/800/rp3440#1 PA8900 1 sockets 1 core
    none:  don't change it
 
-choose 8 if you want to activate the second core in a rp3410 with PA8900 CPUs.
+Choose 8 if you want to activate the second core in a rp3410 with PA8900 CPUs.
+Choose 3 if you run a rp3410 with a PA8800 CPU.
+
+The machine will reboot, and the second core will be activated.
+To leave manufacturing mode power-cycle the machine.
 
 ::
 
