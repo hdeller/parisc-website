@@ -100,6 +100,7 @@ PA-RISC Linux NEWS
 
 Jan 2026
 ~~~~~~~~~
+- Dave continues to make good progress on fixing 64-bit linker issues, e.g. this patch: `hppa64: Improve relocation handling for local symbols and add gc_section support <https://sourceware.org/git/?p=binutils-gdb.git;a=commit;h=b2c74dcb465ccec1289dde0e1c8d299d85bb34f8>`__
 - Activated second CPU core in the panama build server (rp3410) and updated PDC, MP and BMC firmware.
 - Sven added some :doc:`PA8800/PA8900 PIROM/SCRATCH eeprom documentation <pirom_scratch_eeprom>`.
 
