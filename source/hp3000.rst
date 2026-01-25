@@ -3,6 +3,8 @@ HP3000
 
 Craig Lalley <mr_lalley@yahoo.com>
 
+Video: https://www.youtube.com/watch?v=iqHJ_0Lt3Nc - HP3000/XL Series 918 Starup and Shutdown Procedures
+
 Links: http://www.3kranger.com/OpenMPE/omfreeware.shtm
 
 ::

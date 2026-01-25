@@ -190,6 +190,7 @@ External Resources
 - http://www.gentoo.org/doc/en/handbook/handbook-hppa.xml - Gentoo HPPA Handbook
 - http://www.hpmuseum.net/collection_document.php - HP Computer Museum
 - http://computermuseum.informatik.uni-stuttgart.de/dev/hp9000_840/ - Uni Stuttgart Computermuseum - HP 9000/840 (first PA-RISC machine)
+- http://www.robelle.com/library/smugbook/welcome.html - The HP Server Encyclopedia: Robelle's tips for users of HP 3000 (MPE) and HP-UX servers
 - http://tenox.pdp-11.ru/hpux/ - HP/UX ressources
 - https://fsck.technology/software/HP/ - HP/UX ressources
 - http://psg.skinforum.org/hpux.html - Tin Ho's "Sys Admin Pocket Survival Guide - HP-UX"
