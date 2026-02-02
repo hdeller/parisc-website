@@ -439,6 +439,7 @@ Undocumented chips
 OTHER USEFUL LINKS
 ------------------
 
+- `HP Journal March 1984 - Implementation of HP-UX <media/HP_Journal_No_3_1984.pdf>`
 - `HP Computer Museum <http://www.hpmuseum.net/collection_document.php>`__
 - `HP Support Center <http://h20566.www2.hp.com/portal/site/hpsc/template.PAGE/public/psi/selector/?javax.portlet.tpst=867000c4cf25636cc859bfdeb053ce01&javax.portlet.prp_867000c4cf25636cc859bfdeb053ce01=wsrp-navigationalState%3D_queryText%25253DHP%252B9000%252Bservers%25257CimplicitModel%25253Dtrue%25257C_op%25253Dfind&javax.portlet.begCacheTok=com.vignette.cachetoken&javax.portlet.endCacheTok=com.vignette.cachetoken>`__
 - `HP's Tech Library <http://devresource.hp.com/drc/index.jsp>`__
