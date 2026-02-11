@@ -1981,6 +1981,20 @@ Kernel 6.19
 - parisc: Convert DMA map_page to map_phys interface
 - `parisc: entry: set W bit for !compat tasks in syscall_restore_rfi() <https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=5fb1d3ce3e74a4530042795e1e065422295f1371>`__
 
+.. _kernel_7.0:
+
+Kernel 7.0
+----------
+- parisc: kernel: replace kfree() with put_device() in create_tree_node()
+- parisc: Print hardware IDs as 4 digit hex strings
+- parisc: Prevent interrupts during reboot
+- parisc: Export model name for MPE/ix
+- parisc: Fix module path output in qemu tables
+- parisc: Add PDC PAT call to get free running 64-bit counter
+- parisc: Enhance debug code for PAT firmware
+- parisc: Fix minor printk issues in iosapic debug code
+- parisc: Detect 64-bit free running platform counter
+- parisc: lba_pci: Add debug code to show IO and PA ranges
 
 .. _done_items:
 
