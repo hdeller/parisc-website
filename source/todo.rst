@@ -171,13 +171,14 @@ QEMU user-mode emulation
 
 Google Summer of Code (GSoC) ideas:
 -----------------------------------
-- rust port
+- Qemu SCSI TAPE driver (https://wiki.qemu.org/Google_Summer_of_Code_2026)
 - Qemu missing drivers, e.g. SuperIO, PCI graphics, ..
 - Qemu add MPE support
+- rust port
 - port musl libc
 - Fix SeaBIOS wrt virtio drivers (fix endianess issues)
 - bring SeaBIOS back upstream, at least partly, e.g. ncr710
-- port openJDK
+- port openJDK (https://wiki.debian.org/PortsDocs/BootstrappingOpenJDK)
 - 64-bit userspace (glibc/gcc)
 - python3.14 needs fixes to handle stack grows up (patch possibly available)
 

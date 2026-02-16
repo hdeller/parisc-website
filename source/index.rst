@@ -98,6 +98,13 @@ Our sponsors
 PA-RISC Linux NEWS
 ------------------
 
+Feb 2026
+~~~~~~~~~
+- The PA-RISC project participates in the GSOC 2026: `SCSI TAPE device emulation
+  <https://wiki.qemu.org/Google_Summer_of_Code_2026>`__. Goal is to allow installing
+  `MPE <https://en.wikipedia.org/wiki/HP_Multi-Programming_Executive>`__
+  via SCSI tape on an emulated PA-RISC machine.
+
 Jan 2026
 ~~~~~~~~~
 - Dave continues to make good progress on fixing 64-bit linker issues, e.g. this patch: `hppa64: Improve relocation handling for local symbols and add gc_section support <https://sourceware.org/git/?p=binutils-gdb.git;a=commit;h=b2c74dcb465ccec1289dde0e1c8d299d85bb34f8>`__
