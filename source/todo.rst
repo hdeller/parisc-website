@@ -1996,6 +1996,9 @@ Kernel 7.0
 - parisc: Fix minor printk issues in iosapic debug code
 - parisc: Detect 64-bit free running platform counter
 - parisc: lba_pci: Add debug code to show IO and PA ranges
+- `parisc: Fix initial page table creation for boot <https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=8475d8fe21ec9c7eb2faca555fbc5b68cf0d2597>`__
+- `parisc: Check kernel mapping earlier at bootup <https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=17c144f1104bfc29a3ce3f7d0931a1bfb7a3558c>`__
+- `parisc: Increase initial mapping to 64 MB with KALLSYMS <https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=8e732934fb81282be41602550e7e07baf265e972>`__
 
 .. _done_items:
 
