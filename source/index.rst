@@ -78,16 +78,20 @@ Our sponsors
   `Debian buildd and Porterbox machine "parisc"
   <https://db.debian.org/machines.cgi?sortby=purpose&sortorder=dsc>`__ (Oct 2022 - Dec 2025)
 
-
 - `Roberto C. Sánchez <mailto:roberto@debian.org>`__ sponsored a `HP rp3410 server
   <http://www.openpa.net/systems/hp-9000_rp3410_rp3440.html>`__ with one
   800 MHz PA8900 CPU which is used as `Debian buildd and Porterbox machine "panama"
   <https://db.debian.org/machines.cgi?sortby=purpose&sortorder=dsc>`__ (May 2017)
 
-
 - `GALL EDV-Systeme GmbH <http://www.gall.de/>`__ sponsored
   `HP Visualize FX-2, FX-4 and FX-6 grahics cards
   <https://www.openpa.net/pa-risc_graphics.html#visfx>`__ (June 2023)
+
+- `Mike Hosken <mailto:mike@purple-cat.net>`__ sponsored two machines, both located and hosted in New Zealand:
+
+  - a HP ProLiant ML350p Gen8, used as debian buildd server pacific.parisc-linux.org (Sept 2021), and
+
+  - a HP ProLiant DL360 G7, used as debian buildd server panguru.parisc-linux.org (March 2026)
 
 .. note::
 
@@ -97,6 +101,10 @@ Our sponsors
 
 PA-RISC Linux NEWS
 ------------------
+
+Mar 2026
+~~~~~~~~~
+- Mike Hosken sponsored a HP ProLiant DL360 G7 with 64 GB RAM and 800 GB HDD which is being used as debian buildd server panguru.parisc-linux.org.
 
 Feb 2026
 ~~~~~~~~~
