@@ -1,0 +1,129 @@
+set auto-load safe-path /
+set history save
+set history filename ~/.gdbhistory
+set print pretty
+set print symbol-filename on
+set print array
+set input-radix 10
+set output-radix 16
+set confirm off
+set verbose off
+set height 0
+set width 0
+set debuginfod enabled on
+set auto-load python-scripts off
+#set disassembly-flavor intel
+#set prompt \033[32mgdb> \033[0m
+set style address foreground white
+set style address intensity normal
+
+define show_psw_bit
+    if ($flags & $arg0)
+        echo $arg1
+    else
+        echo -
+    end
+end
+
+define show_psw
+    printf "PSW                   CBCBCBCBYZ--WESTHLNXBCVMCBCBCBCB-GFRQPDI\n"
+    printf "PSW %016lx: ", $flags
+    show_psw_bit 0x8000000000 C
+    show_psw_bit 0x4000000000 B
+    show_psw_bit 0x2000000000 C
+    show_psw_bit 0x1000000000 B
+    show_psw_bit 0x0800000000 C
+    show_psw_bit 0x0400000000 B
+    show_psw_bit 0x0200000000 C
+    show_psw_bit 0x0100000000 B
+    show_psw_bit 0x0080000000 Y
+    show_psw_bit 0x0040000000 Z
+    show_psw_bit 0x0020000000 ?
+    show_psw_bit 0x0010000000 ?
+    show_psw_bit 0x0008000000 W
+    show_psw_bit 0x0004000000 E
+    show_psw_bit 0x0002000000 S
+    show_psw_bit 0x0001000000 T
+    show_psw_bit 0x0000800000 H
+    show_psw_bit 0x0000400000 L
+    show_psw_bit 0x0000200000 N
+    show_psw_bit 0x0000100000 X
+    show_psw_bit 0x0000080000 B
+    show_psw_bit 0x0000040000 C
+    show_psw_bit 0x0000020000 V
+    show_psw_bit 0x0000010000 M
+    show_psw_bit 0x0000008000 C
+    show_psw_bit 0x0000004000 B
+    show_psw_bit 0x0000002000 C
+    show_psw_bit 0x0000001000 B
+    show_psw_bit 0x0000000800 C
+    show_psw_bit 0x0000000400 B
+    show_psw_bit 0x0000000200 C
+    show_psw_bit 0x0000000100 B
+    show_psw_bit 0x0000000080 ?
+    show_psw_bit 0x0000000040 G
+    show_psw_bit 0x0000000020 F
+    show_psw_bit 0x0000000010 R
+    show_psw_bit 0x0000000008 Q
+    show_psw_bit 0x0000000004 P
+    show_psw_bit 0x0000000002 D
+    show_psw_bit 0x0000000001 I
+    echo \n
+end
+
+define sid
+    si
+    show_psw
+    printf "R00 00000000 %08x  %08x %08x\n", $r1, $rp, $r3
+    printf "R04 %08x %08x  %08x %08x\n", $r4, $r5, $r6, $r7
+    printf "R08 %08x %08x  %08x %08x\n", $r8, $r9, $r10, $r11,
+    printf "R12 %08x %08x  %08x %08x\n", $r12, $r13, $r14, $r15
+    printf "R16 %08x %08x  %08x %08x\n", $r16, $r17, $r18, $r19
+    printf "R20 %08x %08x  %08x %08x\n", $r20, $r21, $r22, $r23
+    printf "R24 %08x %08x  %08x %08x\n", $r24, $r25, $r26, $dp
+    printf "R28 %08x %08x  %08x %08x\n", $ret0, $ret1, $sp, $r31
+    x/x $pc
+    x/i $pc
+end
+
+define showregs64
+    show_psw
+    printf "R00 0000000000000000 %016lx  %016lx %016lx\n", $r1, $rp, $r3
+    printf "R04 %016lx %016lx  %016lx %016lx\n", $r4, $r5, $r6, $r7
+    printf "R08 %016lx %016lx  %016lx %016lx\n", $r8, $r9, $r10, $r11,
+    printf "R12 %016lx %016lx  %016lx %016lx\n", $r12, $r13, $r14, $r15
+    printf "R16 %016lx %016lx  %016lx %016lx\n", $r16, $r17, $r18, $r19
+    printf "R20 %016lx %016lx  %016lx %016lx\n", $r20, $r21, $r22, $r23
+    printf "R24 %016lx %016lx  %016lx %016lx\n", $r24, $r25, $r26, $dp
+    printf "R28 %016lx %016lx  %016lx %016lx\n", $ret0, $ret1, $sp, $r31
+    printf "SR0 %016lx %016lx  %016lx %016lx\n", $sr0, $sr1, $sr2, $sr3
+    printf "SR4 %016lx %016lx  %016lx %016lx\n", $sr4, $sr5, $sr6, $sr7
+    x/i $pc
+end
+
+define sid64
+    si
+    showregs64
+end
+
+define gvas
+    set $addr = (unsigned long)$arg1 & 0x3fffffffffc
+    x/$arg2 $addr | ((unsigned long)$arg0 << 32)
+end
+
+define gva
+    set $sel = ((unsigned long)$arg0 >> 62)
+
+    if $sel == 0
+      gvas $sr4 $arg0 $arg1
+    end
+    if $sel == 1
+      gvas $sr5 $arg0 $arg1
+    end
+    if $sel == 2
+      gvas $sr6 $arg0 $arg1
+    end
+    if $sel == 3
+      gvas $sr7 $arg0 $arg1
+    end
+end

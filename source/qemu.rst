@@ -440,18 +440,17 @@ HP-UX
 
 - You will need a set of HP-UX PA-RISC installation CD-ROMS or DVDs
 
-  - as of 2024 only booting 32-bit HP-UX is working. We are working on adding 64-bit support.
+  - as of 2026 only booting 32-bit HP-UX is working. We are working on adding 64-bit support.
   - starting from `HP-UX 10.x up to 11.11 (11i v1) <https://www.openpa.net/hp-ux_unix.html#hpux11i>`__
   - only PA-RISC installation medias are supported. CDs for Itanium-2 based HP machines are NOT supported.
   - you may copy those CDs to ISO files for usage with qemu.
-  - please support us by buying from `our sponsors <https://parisc.wiki.kernel.org/index.php/Main_Page#Our_sponsors>`__.
 
 - **NOTE**: Please **keep the default screen resolution of 1280x1024
   pixels**. HP-UX may crash if you increase the width, or in graphical
   environment (with dtwm) the mouse won't be able to reach any line >=
   1146 pxels.
 
-- You probably won't be able to boot an original HP-UX installed hard
+- You most likely won't be able to boot an original HP-UX installed hard
   disc image coming from a physical machine other than a B160L. The
   reason is, that the HP-UX kernel from the other machine has drivers
   built-in and won't recognize the SCSI and network in the emulated
@@ -461,8 +460,9 @@ HP-UX
   to boot older HP-UX releases.
 
 - Even physical HP machines were not able to boot every HP-UX 11 minor
-  version. The HP support matrix at http://hpe.com/info/hpuxservermatrix
-  gives you an overview.
+  version. Check the HP support matrix at http://hpe.com/info/hpuxservermatrix
+  and the summary of openpa at https://www.openpa.net/hp-ux_11i.html
+  for an overview.
 
 - `Astrobaby wrote about his test results.  <https://astr0baby.wordpress.com/2019/04/28/running-hp-ux-11-11-on-qemu-system-hp>`__
 
@@ -527,6 +527,72 @@ storage volume specifier" while the msvs is sometimes called an "msus".
 I assume HP-UX 9.05 doesn't know how to handle the emulated SCSI PCI
 card and thus can't access the disc. Remember, a B160L is different to a
 HP700, and a HP700 had a built-in LASI700 (NCR700) SCSI controller.
+
+Debugging of HP-UX with QEMU
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+To debug the HP-UX kernel in qemu, you need the lifutils
+`lifutils <https://github.com/bug400/lifutils>`__.
+
+Extract the HP-UX kernel from the boot CD::
+
+   lifget /home/parisc/hpux/11.31/hp-ux-11.31-mcoe-06.2007-dvd1.iso WINSTALL /tmp/WINSTALL
+
+Strip off the LIF header to extract the compressed kernel::
+
+   dd if=/tmp/WINSTALL of=/tmp/WINSTALL.gz bs=32 skip=1
+
+Uncompress the kernel::
+
+   gzip -dc /tmp/WINSTALL.gz
+
+Start qemu with "-s" options::
+
+   qemu -s -S ....
+
+And use gdb to do remote debugging::
+
+        $ hppa64-linux-gnu-gdb /tmp/WINSTALL.gz
+        GNU gdb (GDB) 18.0.50.20251214-git
+        Copyright (C) 2025 Free Software Foundation, Inc.
+
+        (gdb) target remote :1234
+        Remote debugging using :1234
+        0x301ffff0f0000100 in ?? ()
+
+        (gdb) c
+        Continuing.
+        ^C
+        Program received signal SIGINT, Interrupt.
+        0x000000000003b040 in bz_words ()
+        (gdb) bt
+        #0  0x000000000003b040 in bz_words ()
+        #1  0x0000000000b35b58 in hdl_bzero_range ()
+        #2  0x0000000000b24f1c in real_page_alloc_core ()
+        #3  0x0000000000b25020 in real_page_alloc ()
+        #4  0x00000000005ae2f8 in load_install_fs ()
+        #5  0x00000000005ae18c in load_sw_data ()
+        #6  0x0000000000a219e4 in rm_loadableSW ()
+        #7  0x0000000000aaa238 in DoCalllist ()
+        #8  0x00000000005ac558 in realmain ()
+
+You may :download:`download this gdbinit file <media/gdbinit>` which includes
+the *sid* and *sid64* macros, which help a lot when singlestepping::
+
+        (gdb) sid64 0x00000000004ae030 in io_hw_path_to_node ()
+        PSW                   CBCBCBCBYZ--WESTHLNXBCVMCBCBCBCB-GFRQPDI
+        PSW 000000000804000f: ------------W--------C--------------QPDI
+        R00 0000000000000000 0000000001472740  00000000004a8c90 000000000113e410
+        R04 0000000000000000 0000000000000001  000000000000004f 00000000aaf17366
+        R08 0000000001472740 0000000000000008  000000003ed3ab14 0000000000000003
+        R12 0000000000000024 00000000ffffffff  0000000000000801 000000000001d1d0
+        R16 0000000000000001 000000000001a720  0000000000000008 0000000000000001
+        R20 0000000000000001 400003ffffff0bdc  0000000000000001 0000000000000000
+        R24 00000000fb6d4b85 ffffffffffffffff  0000000000000000 00000000014b4740
+        R28 0000000000000000 400003ffffff0c20  400003ffffff0cf0 0000000000000000
+        SR0 0000000000000000 0000000000000000  0000000000000000 0000000000000000
+        SR4 0000000000000000 000000000bb16400  0000000000cf5800 0000000000000000
+        => 0x4ae030 <io_hw_path_to_node+360>:	ldd -90(sp),r5
 
 HP ODE
 ~~~~~~
