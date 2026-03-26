@@ -531,7 +531,7 @@ HP700, and a HP700 had a built-in LASI700 (NCR700) SCSI controller.
 Debugging of HP-UX with QEMU
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-To debug the HP-UX kernel in qemu, you need the lifutils
+To debug the HP-UX kernel in qemu, you need the
 `lifutils <https://github.com/bug400/lifutils>`__.
 
 Extract the HP-UX kernel from the boot CD::
@@ -579,7 +579,8 @@ And use gdb to do remote debugging::
 You may :download:`download this gdbinit file <media/gdbinit>` which includes
 the *sid* and *sid64* macros, which help a lot when singlestepping::
 
-        (gdb) sid64 0x00000000004ae030 in io_hw_path_to_node ()
+        (gdb) sid64
+        0x00000000004ae030 in io_hw_path_to_node ()
         PSW                   CBCBCBCBYZ--WESTHLNXBCVMCBCBCBCB-GFRQPDI
         PSW 000000000804000f: ------------W--------C--------------QPDI
         R00 0000000000000000 0000000001472740  00000000004a8c90 000000000113e410
