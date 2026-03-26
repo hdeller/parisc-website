@@ -544,7 +544,7 @@ Strip off the LIF header to extract the compressed kernel::
 
 Uncompress the kernel::
 
-   gzip -dc /tmp/WINSTALL.gz
+   gzip -dc /tmp/WINSTALL.gz > WINSTALL
 
 Start qemu with "-s" options::
 
