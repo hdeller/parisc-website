@@ -505,6 +505,9 @@ To run the image use the command(keep in mind this will run HPUX 10.20 with netw
 
 Note that the credentials provided at the archive.org link might not be valid.
 
+HP-UX 9
+~~~~~~~
+
 HP-UX 9 is the first HP-UX release which does support the PA-RISC CPU.
 HP-UX 9.05 fails when booting the install CD (reported 2021/05/18)::
 
@@ -527,6 +530,12 @@ storage volume specifier" while the msvs is sometimes called an "msus".
 I assume HP-UX 9.05 doesn't know how to handle the emulated SCSI PCI
 card and thus can't access the disc. Remember, a B160L is different to a
 HP700, and a HP700 had a built-in LASI700 (NCR700) SCSI controller.
+
+HP-UX 11iv1
+~~~~~~~~~~~
+
+see here: https://www.reddit.com/r/qemu_kvm/comments/1h3udlw/install_and_run_hpux_11iv1_in_qemu/
+
 
 Debugging of HP-UX with QEMU
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
