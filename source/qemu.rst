@@ -9,18 +9,18 @@ QEMU for PA-RISC overview
 
 .. important::
 
-   - Please run at least QEMU version 8.0.0
-   - 64-bit CPU emulation requires at least QEMU version 8.2.
-   - Idealy use stable QEMU versions v9.1.1, v9.0.3, v8.2.7 or v7.2.14
-   - Qemu v9.1.0 misses two patches to correctly emulate 64-bit CPUs:
-     `one patch for system-mode <https://gitlab.com/qemu-project/qemu/-/commit/ead5078cf1a5f11d16e3e8462154c859620bcc7e>`__
-     and `one patch for user-mode <https://gitlab.com/qemu-project/qemu/-/commit/d33d3adb573794903380e03e767e06470514cefe>`__.
+   - Please run at least QEMU version 10.0.0
+   - 64-bit CPU emulation was added with QEMU version 8.2, and A400 was added for QEMU v11.
 
-QEMU can emulate two different machines:
+QEMU can emulate four different machines:
 
 - a 32-bit `HP B160L desktop <https://www.openpa.net/systems/hp-visualize_b132l_b160l_b180l.html>`__
-  with up to 16 concurrent PA7100LC CPUs (SMP), and
+  with up to 16 concurrent PA7100LC CPUs (SMP). This is the default machine and currently best supported.
+- a 32-bit `HP 715/64 desktop <https://www.openpa.net/systems/hp-9000_715.html>`__
+  with up to 16 concurrent PA7100LC CPUs (SMP). SCSI and network emulation is not stable yet on this machine.
 - a 64-bit `HP C3700 workstation <https://www.openpa.net/systems/hp-visualize_b1000_c3000_c3600.html>`__
+  with up to 16 concurrent PA8700 CPUs (SMP).
+- a 64-bit `HP A400 server <https://www.openpa.net/systems/hp_a400_a500.html>`__
   with up to 16 concurrent PA8700 CPUs (SMP).
 
 Use the QEMU *-machine B160L* (for a 32-bit machine) or *-machine C3700*
