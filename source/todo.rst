@@ -8,6 +8,8 @@ PA-RISC status and TODO 2025-09-21
 Kernel
 ------
 
+- DONE: Allow 64-bit kernel to build without CONFIG_COMPAT.
+
 - STARTED: Fix kernel: make ARCH=parisc tools/perf, needed by sysprof-48 and elfutils packages
 
 - convert parisc arch code to use GENERIC_ENTRY, example for ppc: https://lwn.net/Articles/1044794/
@@ -2000,6 +2002,23 @@ Kernel 7.0
 - `parisc: Check kernel mapping earlier at bootup <https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=17c144f1104bfc29a3ce3f7d0931a1bfb7a3558c>`__
 - `parisc: Increase initial mapping to 64 MB with KALLSYMS <https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=8e732934fb81282be41602550e7e07baf265e972>`__
 - `parisc: Flush correct cache in cacheflush() syscall <https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=2c98a8fbd6aa647414c6248dacf254ebe91c79ad>`__
+
+.. _kernel_7.1:
+
+Kernel 7.1
+----------
+- parisc: led: fix reference leak on failed device registration
+- `parisc: Drop ip_fast_csum() inline assembly implementation <https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=3dd31a370c1dccb580f729af7c580ccb1ae3c0c9>`__
+- parisc: _llseek syscall is only available for 32-bit userspace
+- parisc: Avoid compat syscalls when COMPAT=n
+- parisc: is_compat_task() shall return false for COMPAT=n
+- parisc: Fix signal code to depend on CONFIG_COMPAT instead of CONFIG_64BIT
+- parisc: Fix default stack size when COMPAT=n
+- parisc: Allow to disable COMPAT mode on 64-bit kernel
+- parisc: Include 32-bit VDSO only when building for 32-bit or compat mode
+- parisc: Allow to build without VDSO32
+- `module.lds.S: Fix modules on 32-bit parisc architecture <https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=1221365f55281349da4f4ba41c05b57cd15f5c28>`__ (backported to v6.19+)
+- parisc: update outdated comments for renamed ccio_alloc_consistent()
 
 .. _done_items:
 
