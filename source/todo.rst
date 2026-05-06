@@ -2007,7 +2007,7 @@ Kernel 7.0
 
 Kernel 7.1
 ----------
-- parisc: led: fix reference leak on failed device registration
+- parisc: led: fix reference leak on failed device registration **(was reverted again!)**
 - `parisc: Drop ip_fast_csum() inline assembly implementation <https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=3dd31a370c1dccb580f729af7c580ccb1ae3c0c9>`__
 - parisc: _llseek syscall is only available for 32-bit userspace
 - parisc: Avoid compat syscalls when COMPAT=n
@@ -2019,6 +2019,11 @@ Kernel 7.1
 - parisc: Allow to build without VDSO32
 - `module.lds.S: Fix modules on 32-bit parisc architecture <https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=1221365f55281349da4f4ba41c05b57cd15f5c28>`__ (backported to v6.19+)
 - parisc: update outdated comments for renamed ccio_alloc_consistent()
+- Revert "parisc: led: fix reference leak on failed device registration"
+- parisc: Fix build failure for 32-bit kernel with PA2.0 instruction set
+- parisc: Fix 64-bit kernel build when CONFIG_COMPAT=n
+- parisc: Fix IRQ leak in LASI driver
+- parisc: drivers: switch to dynamic root device
 
 .. _done_items:
 
