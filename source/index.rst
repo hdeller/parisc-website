@@ -102,6 +102,10 @@ Our sponsors
 PA-RISC Linux NEWS
 ------------------
 
+May 2026
+~~~~~~~~~
+- `The virtual OS museum <https://virtualosmuseum.org/>`__ includes images of HP-UX runing in QEMU.
+
 Mar 2026
 ~~~~~~~~~
 - Mike Hosken sponsored a HP ProLiant DL360 G7 with 64 GB RAM and 800 GB HDD which is being used as debian buildd server panguru.parisc-linux.org.
@@ -205,6 +209,7 @@ External Resources
 - http://www.3kranger.com/HP3000/mpeix/hard.shtm#PA-RISC - PA-RISC arch & HP3000 docs
 - http://www.gentoo.org/doc/en/handbook/handbook-hppa.xml - Gentoo HPPA Handbook
 - http://www.hpmuseum.net/collection_document.php - HP Computer Museum
+- https://virtualosmuseum.org/ - The virtual OS museum
 - http://computermuseum.informatik.uni-stuttgart.de/dev/hp9000_840/ - Uni Stuttgart Computermuseum - HP 9000/840 (first PA-RISC machine)
 - http://www.robelle.com/library/smugbook/welcome.html - The HP Server Encyclopedia: Robelle's tips for users of HP 3000 (MPE) and HP-UX servers
 - http://tenox.pdp-11.ru/hpux/ - HP/UX ressources
