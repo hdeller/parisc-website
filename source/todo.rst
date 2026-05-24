@@ -2267,6 +2267,8 @@ Linus Torvalds talking about parisc
   - https://lore.kernel.org/lkml/CAHk-=wiZUidi6Gm_6XFArT621H7vAzhDA63zn2pSGJHdnjRCMA@mail.gmail.com/
   - https://lore.kernel.org/lkml/CAHk-=whWchFofUF9cai6QUixbZNGU=pqDxNUdtZvtBkbFc9QfQ@mail.gmail.com/
 
+- `why he thinks there should be no further big-endian port <https://lkml.org/lkml/2025/9/30/1304>`__ ("[GIT PULL] RISC-V updates for v6.18-rc1")
+
 .. _testsuites_kernel_and_userspace_testing_tools:
 
 Testsuites, kernel and userspace testing tools
