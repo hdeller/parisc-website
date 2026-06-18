@@ -117,18 +117,19 @@ Hidden rp3440/rp3410 Manufacturer and DEBUG commands
 ====================================================
 
 It is possible to permamently enable the second core of the CPU in a rp3410/rp4410.
-For that switch PDC firmware to manufacturing mode.
-Check which server product you own:
+For that switch the PDC firmware to manufacturing mode.
+Before enabling the second CPU, Check which server product you actually own::
+
 - A9954A - PA 8900 two core, 1 processor core active
 - A7136B - PA 8800 800-MHz two core, 1 processor core active
 - A9770A - Activation for second 800 MHz PA 8800 core or PA 8900 processor core
 
-When upgrading a rp3410 with 800 MHz PA8900 CPUs (Mako+) from 1 to 2 Cores it switches from
+When upgrading a rp3410 with 800 MHz PA8900 CPUs (Mako+) from 1 to 2 cores
+the name of the server changes from
 
 - Storm Peak DC- Slow Mako+     (hversion 0x8970)
--   to
+  to
 - Storm Peak DC- Fast Mako+     (hversion 0x8980)
-
 
 ::
 

@@ -102,6 +102,10 @@ Our sponsors
 PA-RISC Linux NEWS
 ------------------
 
+June 2026
+~~~~~~~~~
+- The QEMU SCSI TAPE project will sadly not be funded by Google this year. `Emmanuel Ugwu <mailto:emmanuelugwu121@gmail.com>`__ nevertheless stepped up and wants to develop the SCSI TAPE driver. Lots of other fixes and new functions were added to the QEMU linux-user emulation. 
+
 May 2026
 ~~~~~~~~~
 - `The virtual OS museum <https://virtualosmuseum.org/>`__ includes images of HP-UX runing in QEMU.
