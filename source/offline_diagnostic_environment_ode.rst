@@ -37,7 +37,7 @@ start a specific test by adding it to ode::
 
 will start the PCXL2 CPU tests for the PA7100LC CPU in the B160L. You
 will be asked for a password, in qemu it's usually 'quality', but can be
-'poultry' or 'saturn' as well.
+'poultry', 'saturn', 'dolphin' or 'country' as well.
 
 L2DIAG
 ------
