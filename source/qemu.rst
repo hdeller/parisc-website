@@ -505,6 +505,11 @@ To run the image use the command(keep in mind this will run HPUX 10.20 with netw
 
 Note that the credentials provided at the archive.org link might not be valid.
 
+If you plan to manually install HP-UX 10.20 please note that the hard discs at that time often were less than 2 GB in size, e.g.::
+
+    qemu-img create -f qcow2 hdd_for_hpux_1020.img 2G
+
+
 HP-UX 9
 ~~~~~~~
 
