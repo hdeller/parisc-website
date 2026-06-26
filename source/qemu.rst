@@ -36,6 +36,12 @@ QEMU for PA-RISC has been developed by:
 - `Helge Deller <mailto:deller@gmx.de>`__: QEMU hardware drivers, SeaBIOS PDC firmware, CPU emulation bug fixes, QEMU linux-user
 - `Sven Schnelle <mailto:svens@stackframe.org>`__: Lots of fixes in QEMU and SeaBIOS (SCSI, CPU emulation fixes, SeaBIOS PDC firmware)
 
+specific drivers were contributed by:
+
+- `Soumyajyotii Ssarkar <mailto:soumyajyotisarkar23@gmail.com>`__ developed the NCR 53c710 SCSI driver during GSoC 2025
+- `Soumyajyotii Ssarkar <mailto:soumyajyotisarkar23@gmail.com>`__ developed the LASI i82596 network driver during GSoC 2025
+- `Keith Monahan <mailto:keith@techtravels.org>`__ wrote a new NCR 53c710 SCSI driver based on the lsi53c895a driver in 2026 and made it functional for Linux, HP-UX and BSD
+
 QEMU for PA-RISC can be further developed via paid contract from:
 
 - `Mark Cave-Ayland <mailto:mark.cave-ayland@ilande.co.uk>`__: offers paid contract work on QEMU for PA-RISC
