@@ -2025,6 +2025,12 @@ Kernel 7.1
 - parisc: Fix IRQ leak in LASI driver
 - parisc: drivers: switch to dynamic root device
 
+.. _kernel_7.2:
+
+Kernel 7.2
+----------
+- `Input: gscps2 - advance receive buffer write index <https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=d86d4f8cbb5a55a3b9b86f7b5ab8c4cdda600a3f>`__ (backported to 6.13+)
+
 .. _done_items:
 
 DONE items
