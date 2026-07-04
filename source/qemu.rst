@@ -12,16 +12,19 @@ QEMU for PA-RISC overview
    - Please run at least QEMU version 10.0.0
    - 64-bit CPU emulation was added with QEMU version 8.2, and A400 was added for QEMU v11.
 
-QEMU can emulate four different machines:
+QEMU can emulate four different machines, Linux runs on all of them:
 
 - a 32-bit `HP B160L desktop <https://www.openpa.net/systems/hp-visualize_b132l_b160l_b180l.html>`__
-  with up to 16 concurrent PA7100LC CPUs (SMP). This is the default machine and currently best supported.
+  with up to 16 concurrent PA7100LC CPUs (SMP). This is the default machine and the best supported one on qemu.
+  It supports HP-UX 10.20 up to HP-UX 11v1.
 - a 32-bit `HP 715/64 desktop <https://www.openpa.net/systems/hp-9000_715.html>`__
-  with up to 16 concurrent PA7100LC CPUs (SMP). SCSI and network emulation is not stable yet on this machine.
+  with up to 16 concurrent PA7100LC CPUs (SMP). SCSI and network emulation is not yet stable on this machine.
+  It supports HP-UX 9 up to HP-UX 11v1.
 - a 64-bit `HP C3700 workstation <https://www.openpa.net/systems/hp-visualize_b1000_c3000_c3600.html>`__
   with up to 16 concurrent PA8700 CPUs (SMP).
 - a 64-bit `HP A400 server <https://www.openpa.net/systems/hp_a400_a500.html>`__
   with up to 16 concurrent PA8700 CPUs (SMP).
+  Beside HP-UX 11, the plan is to allow it to run the MPE operating system.
 
 Use the QEMU *-machine B160L* (for a 32-bit machine) or *-machine C3700*
 (for a 64-bit machine) option to boot. Various operating systems are
@@ -31,7 +34,7 @@ Dependend Code), and QEMU comes with a precompiled firmware which is
 based on a `fork of SeaBIOS <https://github.com/hdeller/seabios-hppa/>`__.
 
 QEMU for PA-RISC has been developed by:
-
+t
 - `Richard Henderson <mailto:rth@twiddle.net>`__: QEMU CPU emulation, QEMU hardware drivers
 - `Helge Deller <mailto:deller@gmx.de>`__: QEMU hardware drivers, SeaBIOS PDC firmware, CPU emulation bug fixes, QEMU linux-user
 - `Sven Schnelle <mailto:svens@stackframe.org>`__: Fixes in QEMU and SeaBIOS (SCSI, CPU emulation fixes, SeaBIOS PDC firmware, fixes for HP-UX support)
@@ -521,28 +524,34 @@ If you plan to manually install HP-UX 10.20 please note that the hard discs at t
 HP-UX 9
 ~~~~~~~
 
-HP-UX 9 is the first HP-UX release which does support the PA-RISC CPU.
-HP-UX 9.05 fails when booting the install CD (reported 2021/05/18)::
+HP-UX 9 was the first HP-UX release which supported the PA-RISC CPU.
+The 715 machine is the only QEMU emulated machine, which should be able
+to run HP-UX 9, so you need to add *-machine 715* when starting qemu.
+See those notes about how to install :doc:`HPUX-9 <hpux-9>`.
 
-    Stored message buffer up to panic:
-        Floating point coprocessor configured and enabled.
-        No BTLB entries found for processor 0
-        Unsupported module type 0x7 found
-        System Panic:
-            B2352A HP-UX (A.09.05) #2: Tue Oct 18 15:46:14 PDT 1994
-        panic: (display==0xbc00, flags==0x0) Unable to initialize msus structure
-        PC-Offset Stack Trace (read across, most recent is 1st):
-            0x000ec6f8  0x000d7e3c  0x00081e5c  0x000254c0
-        End Of Stack
-        dumping 0 bytes to dev 0xffffffff, offset 0 ...
-        Dump failed, returning 5.
+With QEMU v11.1, the install CD still crashes::
 
-according to `this document <https://archive.org/stream/bitsavers_hp9000hpuxingHPBASICUX6.2Aug91_5917615/E2040-90001_Using_HP_BASIC_UX_6.2_Aug91_djvu.txt>`__
-"msus" means "mass storage unit specifier" and "msvs" means "mass
-storage volume specifier" while the msvs is sometimes called an "msus".
-I assume HP-UX 9.05 doesn't know how to handle the emulated SCSI PCI
-card and thus can't access the disc. Remember, a B160L is different to a
-HP700, and a HP700 had a built-in LASI700 (NCR700) SCSI controller.
+        ISL booting  hpux boot disc(;0):INSTALL
+        Secondary Loader 9000/700
+        Revision 3.08
+        Booting disc(;0):INSTALL
+        1499020 + 2424832 + 217760 start 0x25030
+        
+        Stored message buffer up to panic:
+        Floating point coprocessor configured and enabled.
+        
+        I/O System Configuration:
+        interrupt type 15, pcsq.pcoq = 0.7b84c, isr.ior = 0.fffb0000
+        Data page fault on interrupt stack
+        
+        System Panic:
+           B2352A HP-UX (A.09.07) #2: Mon Apr 24 17:28:04 MDT 1995
+        panic: (display==0xbc00, flags==0x0) Interrupt
+        PC-Offset Stack Trace (read across, most recent is 1st):
+        stktrc: can't find rp
+          0x000ec98c  0x0007fdcc  0x0006f93c  0x0007b84c
+        End Of Stack
+
 
 HP-UX 11iv1
 ~~~~~~~~~~~
@@ -624,12 +633,6 @@ The HP :doc:`Offline Diagnostic Environment (ODE)
 <offline_diagnostic_environment_ode>` is a great utility to test the
 quality of the QEMU emulation. This is an ongoing effort, see above
 website for details.
-
-HP-UX 9.x
-~~~~~~~~~
-
-This does not work yet. Mostly due to missing qemu drivers. For here for
-some notes about how to install :doc:`HPUX-9 <hpux-9>`.
 
 NetBSD
 ------
