@@ -34,13 +34,15 @@ QEMU for PA-RISC has been developed by:
 
 - `Richard Henderson <mailto:rth@twiddle.net>`__: QEMU CPU emulation, QEMU hardware drivers
 - `Helge Deller <mailto:deller@gmx.de>`__: QEMU hardware drivers, SeaBIOS PDC firmware, CPU emulation bug fixes, QEMU linux-user
-- `Sven Schnelle <mailto:svens@stackframe.org>`__: Lots of fixes in QEMU and SeaBIOS (SCSI, CPU emulation fixes, SeaBIOS PDC firmware)
+- `Sven Schnelle <mailto:svens@stackframe.org>`__: Fixes in QEMU and SeaBIOS (SCSI, CPU emulation fixes, SeaBIOS PDC firmware, fixes for HP-UX support)
 
-specific drivers were contributed by:
+Additionally, specific drivers were contributed by:
 
-- `Soumyajyotii Ssarkar <mailto:soumyajyotisarkar23@gmail.com>`__ developed the NCR 53c710 SCSI driver during GSoC 2025
-- `Soumyajyotii Ssarkar <mailto:soumyajyotisarkar23@gmail.com>`__ developed the LASI i82596 network driver during GSoC 2025
-- `Keith Monahan <mailto:keith@techtravels.org>`__ wrote a new NCR 53c710 SCSI driver based on the lsi53c895a driver in 2026 and made it functional for Linux, HP-UX and BSD
+- In 2025, `Soumyajyotii Ssarkar <mailto:soumyajyotisarkar23@gmail.com>`__ developed the NCR 53c710 SCSI driver during GSoC 2025
+- In 2025, `Soumyajyotii Ssarkar <mailto:soumyajyotisarkar23@gmail.com>`__ developed the LASI i82596 network driver during GSoC 2025
+- In 2026, `Emmanuel Ugwu <mailto:emmanuelugwu121@gmail.com>`__ started development of a SCSI TAPE driver for QEMU
+- In 2026, `Keith Monahan <mailto:keith@techtravels.org>`__ wrote a new NCR 53c710 SCSI driver based on the existing lsi53c895a driver and made it functional for Linux, HP-UX and BSD. As of July, upstreaming this new driver has started.
+- In 2026, `Abizer Lokhandwala <mailto:abizerlokhandwalastd10@gmail.com>`__ started to write a driver to emulate the SuperIO chip (serial, IDE, parallel, ...). This chip has been used in many PA-RISC machines, e.g. the C3700.
 
 QEMU for PA-RISC can be further developed via paid contract from:
 
