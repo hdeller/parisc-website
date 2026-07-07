@@ -10,6 +10,8 @@ Kernel
 
 - DONE: Allow 64-bit kernel to build without CONFIG_COMPAT.
 
+- Add Linux Kernel THP (Transparent Hugepage) support
+
 - STARTED: Fix kernel: make ARCH=parisc tools/perf, needed by sysprof-48 and elfutils packages
 
 - convert parisc arch code to use GENERIC_ENTRY, example for ppc: https://lwn.net/Articles/1044794/

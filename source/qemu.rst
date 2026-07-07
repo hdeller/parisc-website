@@ -56,13 +56,14 @@ QEMU for PA-RISC can be further developed via paid contract from:
 QEMU supported guest operating systems
 --------------------------------------
 
-QEMU does support those operating systems as guests:
+QEMU aims to support those operating systems as guests:
 
 - Linux (Debian, Gentoo)
-- `HP-UX <https://en.wikipedia.org/wiki/HP-UX>`__, versions 9.x up to 11.11
+- `HP-UX <https://en.wikipedia.org/wiki/HP-UX>`__, versions 9.x up to 11.31
 - `NetBSD <https://wiki.netbsd.org/ports/hppa/>`__, >= 8.0
 - `NextSTEP <https://winworldpc.com/product/nextstep/3x>`__
 - `OSF/MkLinux <ftp://ftp.cirr.com/pub/hppa/mklinux/>`__
+- `HP Multi-Programming Executive (MPE) <https://en.wikipedia.org/wiki/HP_Multi-Programming_Executive>`__
 
 .. _qemu_command_line_options:
 
@@ -692,12 +693,15 @@ Future QEMU work
 
 Possible enhancements:
 
-- Add Dino/Lasi serial port
+- Add MPE support (A400)A
+- Fix HP-UX 9 on 715/64
+- Add STI ROM for ATI / VGA graphic cards
+- Improve Diva card emulation
+- Started: Emulate built-in LASI SCSI controller instead of PCI SCSI add-on card
 - Harmony sound card in Lasi
-- Does HP-UX has some kind of "sleep" assembler instruction in it's idle loop which can be used to lower qemu power consumption?
 - Fix virtio-drivers in SeaBIOS (missing endianess conversions, because SeaBIOS is originally only Little-endian for x86)
 - Emulate a 712 and/or j5000 machine
-- Emulate built-in LASI SCSI controller instead of PCI SCSI add-on card
+- Does HP-UX has some kind of "sleep" assembler instruction in it's idle loop which can be used to lower qemu power consumption?
 
 Screenshots
 -----------
