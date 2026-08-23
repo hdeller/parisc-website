@@ -2033,6 +2033,17 @@ Kernel 7.2
 ----------
 - `Input: gscps2 - advance receive buffer write index <https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=d86d4f8cbb5a55a3b9b86f7b5ab8c4cdda600a3f>`__ (backported to 6.13+)
 
+Kernel 7.3
+----------
+- `sticon/parisc: Detect default STI graphics card for console output <https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=de508ece1d37cdbbbfa52f074954310f9b066b13>`__
+- parisc: superio: Spelling s/Peterson/Petersen/
+- `UAPI: Drop PER_HPUX personality <https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=eac2cd4ed64e471b15d0b75ab7c01b8082ea5cf1>`__
+- `parisc: Fix alignment of asm statements in head.S <https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=04cf68c9a76e3c6b67ad056a66a14923abf85925>`__
+- parisc: eisa_eeprom: Add missing MODULE_DESCRIPTION()
+- parisc: sba_iommu: Remove dead DEBUG_DMB_TRAP code
+- parisc: eisa: Fix infinite loop when parsing invalid IRQ value
+- parisc: Use asm-generic/serial.h
+
 .. _done_items:
 
 DONE items
