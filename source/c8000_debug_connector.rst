@@ -150,7 +150,7 @@ J13 2x40 pin 1mm pitch connector:
       - A23
       - 
       - B23
-      - 
+      - PDC Flash A22 [#a22]_
    - 
 
       - A24
@@ -253,3 +253,5 @@ J13 2x40 pin 1mm pitch connector:
       - +5V
       - B40
       - +3.3V
+
+.. [#a22] Only if an 8MiB PDC flash chip is installed, and resistors R422 and R423 (located next to the Spartan FPGA) are set appropriately - install R422 for 8MiB, R423 for 4MiB.
