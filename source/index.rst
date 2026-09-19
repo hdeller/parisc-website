@@ -102,6 +102,14 @@ Our sponsors
 PA-RISC Linux NEWS
 ------------------
 
+Sep 2026
+~~~~~~~~~
+- `Abizer Lokhandwala <mailto:abizerlokhandwalastd10@gmail.com>`__ contributed to the QEMU project an emulation for the National Semiconductor 87560 SuperIO chip (FDC, two serial ports, one parallel port, an IDE controller and one OHCI USB port) which is now activate by default forthe emulated HP C3700 workstation
+
+Aug 2026
+~~~~~~~~~
+- More linux-user updates for QEMU
+
 June 2026
 ~~~~~~~~~
 - The QEMU SCSI TAPE project will sadly not be funded by Google this year. `Emmanuel Ugwu <mailto:emmanuelugwu121@gmail.com>`__ nevertheless stepped up and wants to develop the SCSI TAPE driver. Lots of other fixes and new functions were added to the QEMU linux-user emulation. 
