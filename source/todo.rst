@@ -2043,6 +2043,10 @@ Kernel 7.3
 - parisc: sba_iommu: Remove dead DEBUG_DMB_TRAP code
 - parisc: eisa: Fix infinite loop when parsing invalid IRQ value
 - parisc: Use asm-generic/serial.h
+- parisc: remove unused <asm/compat_ucontext.h> header
+- `parisc: Increase kernel stack size to 32kb <https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=94b7e3a7e871ae27d4935c76959dfc61829f27f9>`__
+- `parisc: unwind: Replace open-coded binary search with bsearch() <https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=4485a01f4df1c9683d8ffe3e4ade6c33c9572d3c>`__
+- `parisc: parse early parameters in setup_arch() <https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=289e99e7a263c6fd6a5d07d6d8f2156b70f3a9d5>`__
 
 .. _done_items:
 
