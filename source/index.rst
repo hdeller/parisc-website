@@ -104,6 +104,7 @@ PA-RISC Linux NEWS
 
 Sep 2026
 ~~~~~~~~~
+- `Craig Lalley <mailto:mr_lalley@yahoo.com>`__ was able to boot `MPE (HP Multi-Programming Executive) <https://en.wikipedia.org/wiki/HP_Multi-Programming_Executive>`__ on an emulated A400 machine. His relevant QEMU and SeaBIOS patches are pending to be included upstream.
 - `Abizer Lokhandwala <mailto:abizerlokhandwalastd10@gmail.com>`__ contributed to the QEMU project an emulation for the National Semiconductor 87560 SuperIO chip (FDC, two serial ports, one parallel port, an IDE controller and one OHCI USB port) which is now activate by default forthe emulated HP C3700 workstation
 
 Aug 2026
