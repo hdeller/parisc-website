@@ -9,8 +9,7 @@ QEMU for PA-RISC overview
 
 .. important::
 
-   - Please run at least QEMU version 10.0.0
-   - 64-bit CPU emulation was added with QEMU version 8.2, and A400 was added for QEMU v11.
+   - Please run the latest available QEMU version for best support.
 
 QEMU can emulate four different machines, Linux runs on all of them:
 
@@ -33,23 +32,21 @@ the sections below. PA-RISC machines need a firmware ("PDC" = Processor
 Dependend Code), and QEMU comes with a precompiled firmware which is
 based on a `fork of SeaBIOS <https://github.com/hdeller/seabios-hppa/>`__.
 
-QEMU for PA-RISC has been developed by:
-t
-- `Richard Henderson <mailto:rth@twiddle.net>`__: QEMU CPU emulation, QEMU hardware drivers
-- `Helge Deller <mailto:deller@gmx.de>`__: QEMU hardware drivers, SeaBIOS PDC firmware, CPU emulation bug fixes, QEMU linux-user
-- `Sven Schnelle <mailto:svens@stackframe.org>`__: Fixes in QEMU and SeaBIOS (SCSI, CPU emulation fixes, SeaBIOS PDC firmware, fixes for HP-UX support)
+QEMU for PA-RISC developers and contributors
+--------------------------------------------
 
-Additionally, specific drivers were contributed by:
-
-- In 2025, `Soumyajyotii Ssarkar <mailto:soumyajyotisarkar23@gmail.com>`__ developed the NCR 53c710 SCSI driver during GSoC 2025
-- In 2025, `Soumyajyotii Ssarkar <mailto:soumyajyotisarkar23@gmail.com>`__ developed the LASI i82596 network driver during GSoC 2025
-- In 2026, `Emmanuel Ugwu <mailto:emmanuelugwu121@gmail.com>`__ started development of a SCSI TAPE driver for QEMU
+- In Oct 2017, `Helge Deller <mailto:deller@gmx.de>`__ started the QEMU PA-RISC emulator and provided some QEMU hardware drivers and the SeaBIOS PDC firmware. He still continues to contribute.
+- In Oct 2017, `Richard Henderson <mailto:rth@twiddle.net>`__ provided the QEMU CPU emulation and some QEMU PA-RISC hardware drivers.
+- Since 2019, `Sven Schnelle <mailto:svens@stackframe.org>`__ provided many fixes in QEMU and SeaBIOS (SCSI, CPU emulation fixes, SeaBIOS PDC firmware, fixes for HP-UX support e.g. in LSI 53c895a driver).
+- In 2025, `Soumyajyotii Ssarkar <mailto:soumyajyotisarkar23@gmail.com>`__ developed the NCR 53c710 SCSI driver during GSoC 2025.
+- In 2025, `Soumyajyotii Ssarkar <mailto:soumyajyotisarkar23@gmail.com>`__ developed the LASI i82596 network driver during GSoC 2025.
+- In 2026, `Emmanuel Ugwu <mailto:emmanuelugwu121@gmail.com>`__ started development of a SCSI TAPE driver for QEMU.
 - In 2026, `Keith Monahan <mailto:keith@techtravels.org>`__ wrote a new NCR 53c710 SCSI driver based on the existing lsi53c895a driver and made it functional for Linux, HP-UX and BSD. As of July, upstreaming this new driver has started.
 - In 2026, `Abizer Lokhandwala <mailto:abizerlokhandwalastd10@gmail.com>`__ developed the driver to emulate the SuperIO chip (serial, IDE, parallel, ...). This chip has been used in many PA-RISC machines, e.g. the C3700.
 
 QEMU for PA-RISC can be further developed via paid contract from:
 
-- `Mark Cave-Ayland <mailto:mark.cave-ayland@ilande.co.uk>`__: offers paid contract work on QEMU for PA-RISC
+- `Mark Cave-Ayland <mailto:mark.cave-ayland@ilande.co.uk>`__ offers paid contract work on QEMU for PA-RISC
 
 .. _qemu_supported_guest_operating_systems:
 
@@ -63,27 +60,24 @@ QEMU aims to support those operating systems as guests:
 - `NetBSD <https://wiki.netbsd.org/ports/hppa/>`__, >= 8.0
 - `NextSTEP <https://winworldpc.com/product/nextstep/3x>`__
 - `OSF/MkLinux <ftp://ftp.cirr.com/pub/hppa/mklinux/>`__
-- `HP Multi-Programming Executive (MPE) <https://en.wikipedia.org/wiki/HP_Multi-Programming_Executive>`__
+- `MPE (HP Multi-Programming Executive) <https://en.wikipedia.org/wiki/HP_Multi-Programming_Executive>`__
 
 .. _qemu_command_line_options:
 
 QEMU command line options
 -------------------------
 
-``-machine C3700``
-  start a 64-bit C3700 workstation (qemu >= v8.2)
+``-machine C3700`` or ``-machine A400``
+  start a 64-bit C3700 or A400 workstation (qemu >= v8.2)
 
-``-machine B160L``
-  start a 32-bit B160L workstation (default)
+``-machine B160L`` or ``-machine 715``
+  start a 32-bit B160L or 715/64 workstation (default)
 
 ``-smp cpus=4``
-  define number of CPUs in the guest (maximum CPUs: 32)
+  define number of CPUs in the guest (maximum CPUs: 16)
 
 ``-m 1G``
   tell machine to have 1G of RAM memory
-
-``-accel tcg,thread=multi``
-  always use this to enable parallel tcg (otherwise all guest CPUs run on one host CPU)
 
 ``-boot menu=on``
   Firmware: enable interactive mode (same as "BOOT PRI **IPL**")
@@ -115,6 +109,10 @@ QEMU command line options
   create an empty machine without default SCSI or network controller
   (qemu >= v8.2). Add "-serial mon:stdio" to get a serial console,
   otherwise no output will be visible.
+
+``-accel tcg,thread=multi`` (old option)
+  always use this to enable parallel tcg (otherwise all guest CPUs run on one host CPU)
+
 
 HPPA specific qemu options
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
