@@ -71,7 +71,7 @@ QEMU command line options
   start a 64-bit C3700 or A400 workstation (qemu >= v8.2)
 
 ``-machine B160L`` or ``-machine 715``
-  start a 32-bit B160L or 715/64 workstation (default)
+  start a 32-bit B160L (=default) or 715/64 workstation
 
 ``-smp cpus=4``
   define number of CPUs in the guest (maximum CPUs: 16)
@@ -98,9 +98,8 @@ QEMU command line options
   disable artist graphic card emulation, so no graphics output
 
 ``-display sdl``
-  if you need graphics you should prefer SDL display output if your run
-  Qemu < v2.0. In previous qemu versions, GTK had a bug which slows down
-  output.
+  if you need graphics you should prefer SDL display output if you run Qemu < v2.0.
+  In previous qemu versions, GTK had a bug which slowed down output.
 
 ``-vnc :1``
   start graphics output on VNC output, connect to *hostname*:1 with any VNC viewer
@@ -225,21 +224,22 @@ QEMU special emulated assembler statements
 The emulated guest may use specific asssembler statements to control the
 qemu emulator:
 
-``.word 0xfffdead0``
-  immediately halt the emulator, similiar to turning the machine off
-
-``.word 0xfffdead1``
-  reset machine
-
-``.word 0xfffdead2``
-  restore original (pre-interrupt) values back into shadow registers,
-  used by SeaBIOS when executing NMI instruction in qemu
-
 ``or %r10,%r10,%r10``
-  idle loop; wait for interrupt
+  idle loop; wait for interrupt. Should be used by the emulated operating
+  systems in their idle loop to lower the physical CPU power consumption in the host.
 
 ``or %r31,%r31,%r31``
-  death loop; offline cpu (currently implemented for idle loop).
+  death loop; offline CPU (used by SeaBIOS to offline a guest CPU).
+
+``.word 0xfffdead0``
+  immediately halt the emulator, similar to turning the machine off.
+
+``.word 0xfffdead1``
+  reset the machine, jumps back into SeaBIOS PDC to reboot.
+
+``.word 0xfffdead2``
+  restore original (pre-interrupt) values back into shadow registers.
+  Used by SeaBIOS when executing NMI instruction in qemu.
 
 Qemu standard debugging options
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
