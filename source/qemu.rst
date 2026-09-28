@@ -20,10 +20,12 @@ QEMU can emulate four different machines, Linux runs on all of them:
   with up to 16 concurrent PA7100LC CPUs (SMP). SCSI and network emulation is not yet stable on this machine.
   It supports HP-UX 9 up to HP-UX 11v1.
 - a 64-bit `HP C3700 workstation <https://www.openpa.net/systems/hp-visualize_b1000_c3000_c3600.html>`__
-  with up to 16 concurrent PA8700 CPUs (SMP).
+  with up to 16 concurrent PA8700 CPUs (SMP). This machine is able to boot 32-
+  and 64-bit Linux- and HP-UX operating systems.
 - a 64-bit `HP A400 server <https://www.openpa.net/systems/hp_a400_a500.html>`__
-  with up to 16 concurrent PA8700 CPUs (SMP).
-  Beside HP-UX 11, the plan is to allow it to run the MPE operating system.
+  with up to 16 concurrent PA8700 CPUs (SMP). Like the physical A400 machine,
+  it only allows to boot 64-bit operating systems like HP-UX 11. In addition, we aim to
+  support the MPE/iX operating system on this machine.
 
 Use the QEMU *-machine B160L* (for a 32-bit machine) or *-machine C3700*
 (for a 64-bit machine) option to boot. Various operating systems are
