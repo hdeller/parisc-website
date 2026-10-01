@@ -40,15 +40,11 @@ QEMU for PA-RISC developers and contributors
 - In Oct 2017, `Helge Deller <mailto:deller@gmx.de>`__ started the QEMU PA-RISC emulator and provided some QEMU hardware drivers and the SeaBIOS PDC firmware. He still continues to contribute.
 - In Oct 2017, `Richard Henderson <mailto:rth@twiddle.net>`__ provided the QEMU CPU emulation and some QEMU PA-RISC hardware drivers.
 - Since 2019, `Sven Schnelle <mailto:svens@stackframe.org>`__ provided many fixes in QEMU and SeaBIOS (SCSI, CPU emulation fixes, SeaBIOS PDC firmware, fixes for HP-UX support e.g. in LSI 53c895a driver).
-- In 2025, `Soumyajyotii Ssarkar <mailto:soumyajyotisarkar23@gmail.com>`__ developed the NCR 53c710 SCSI driver during GSoC 2025.
-- In 2025, `Soumyajyotii Ssarkar <mailto:soumyajyotisarkar23@gmail.com>`__ developed the LASI i82596 network driver during GSoC 2025.
-- In 2026, `Emmanuel Ugwu <mailto:emmanuelugwu121@gmail.com>`__ started development of a SCSI TAPE driver for QEMU.
+- In 2025, `Soumyajyotii Ssarkar <mailto:soumyajyotisarkar23@gmail.com>`__ developed the NCR 53c710 SCSI driver and the LASI i82596 network driver as part of his GSoC 2025 participation. Both drivers were merged in 2025.
+- In 2026, `Emmanuel Ugwu <mailto:emmanuelugwu121@gmail.com>`__ started development of a SCSI TAPE driver for QEMU. This driver is currently waiting for update.
 - In 2026, `Keith Monahan <mailto:keith@techtravels.org>`__ wrote a new NCR 53c710 SCSI driver based on the existing lsi53c895a driver and made it functional for Linux, HP-UX and BSD. As of July, upstreaming this new driver has started.
-- In 2026, `Abizer Lokhandwala <mailto:abizerlokhandwalastd10@gmail.com>`__ developed the driver to emulate the SuperIO chip (serial, IDE, parallel, ...). This chip has been used in many PA-RISC machines, e.g. the C3700.
-
-QEMU for PA-RISC can be further developed via paid contract from:
-
-- `Mark Cave-Ayland <mailto:mark.cave-ayland@ilande.co.uk>`__ offers paid contract work on QEMU for PA-RISC
+- In 2026, `Abizer Lokhandwala <mailto:abizerlokhandwalastd10@gmail.com>`__ developed the driver to emulate the SuperIO chip (serial, parallel, IDE, USB) which was used in many B- and C-class series machines like the C3700. His driver was merged in September 2026.
+- `Mark Cave-Ayland <mailto:mark.cave-ayland@ilande.co.uk>`__ contributed various SCSI fixes and offers paid contract work on QEMU for PA-RISC
 
 .. _qemu_supported_guest_operating_systems:
 
