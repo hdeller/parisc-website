@@ -159,6 +159,7 @@ How to build a package (without modifying source)
 
 ::
 
+   apt build-dep --arch package_name
    dpkg-buildpackage --force-sign -B -sa -m
 
 e.g.::
