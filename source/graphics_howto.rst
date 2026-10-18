@@ -204,6 +204,12 @@ Useful Linux command line tools when running framebuffer drivers (fbdev and DRM)
 
       echo 0 > /sys/class/vtconsole/vtcon1/bind
 
+  - blank/unblank console (sticon, vgacon,..)::
+
+      setterm --blank force          # blank
+      setterm --blank poke           # unblank
+      setterm --powersave powerdown  # set VESA DPMS level 3
+
 Configuring Xorg for HP graphics cards
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -266,4 +272,4 @@ boot time as well if the kernel is correctly configured.
 
 Use ``fbset -i`` to determine the supported color depth if it's not clear
 from the STIFB driver output. Help on configuring mouse and keyboard is
-available in the :doc:`FAQ <_faq>`.
+available in the :doc:`FAQ <faq>`.
