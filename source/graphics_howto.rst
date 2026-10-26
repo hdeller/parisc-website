@@ -210,6 +210,11 @@ Useful Linux command line tools when running framebuffer drivers (fbdev and DRM)
       setterm --blank poke           # unblank
       setterm --powersave powerdown  # set VESA DPMS level 3
 
+  - change console font::
+
+      cd /usr/share/consolefonts
+      setfont Lat7-Terminus28x14.psf
+
 Configuring Xorg for HP graphics cards
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
