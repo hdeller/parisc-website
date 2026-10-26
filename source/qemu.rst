@@ -521,6 +521,8 @@ If you plan to manually install HP-UX 10.20 please note that the hard discs at t
 HP-UX 9
 ~~~~~~~
 
+UPDATE Oct 2026: Keith Monahan developed patches which allow an installation of HP-UX 9.05 on QEMU with login prompt and VUE desktop <https://github.com/keithgh1/hpux905-qemu>. Upstreaming of patche ongoing.
+
 HP-UX 9 was the first HP-UX release which supported the PA-RISC CPU.
 The 715 machine is the only QEMU emulated machine, which should be able
 to run HP-UX 9, so you need to add *-machine 715* when starting qemu.
@@ -716,3 +718,10 @@ HP-UX 10.20 with VUE
 ~~~~~~~~~~~~~~~~~~~~
 
 .. image:: media/hpux-10-vue.png
+
+HP-UX 9.05 with VUE
+~~~~~~~~~~~~~~~~~~~
+
+HP-UX 9.05 (1994) running on QEMU's emulated HP 9000/715 workstation (-M 715), from the original CDs to the HP VUE desktop.
+
+.. image:: media/hpux-905-vue.png
