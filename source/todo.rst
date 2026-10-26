@@ -8,6 +8,8 @@ PA-RISC status and TODO 2025-09-21
 Kernel
 ------
 
+- Kernel & SeaBIOS: Add __muldi3 and other libgcc functions which don't use the FPU
+
 - DONE: Allow 64-bit kernel to build without CONFIG_COMPAT.
 
 - Add Linux Kernel THP (Transparent Hugepage) support
