@@ -499,7 +499,7 @@ HP-UX
 HP-UX 10.20
 ~~~~~~~~~~~
 
-For HP-UX 10.20, you can find images at `archive.org <https://archive.org/details/hpux_20200510>`__. 
+For HP-UX 10.20, you can find images at `archive.org <https://archive.org/details/hpux_20200510>`__.
 The link contains both img and iso files for HP-UX 10.20.
 
 To run the image use the command(keep in mind this will run HPUX 10.20 with networking turned on)::
@@ -521,35 +521,23 @@ If you plan to manually install HP-UX 10.20 please note that the hard discs at t
 HP-UX 9
 ~~~~~~~
 
-UPDATE Oct 2026: Keith Monahan developed patches which allow an installation of HP-UX 9.05 on QEMU with login prompt and VUE desktop <https://github.com/keithgh1/hpux905-qemu>. Upstreaming of patche ongoing.
+Thanks to Keith Monahan, HP-UX 9.05 with login prompt and VUE desktop will work on the 715 machine on QEMU v11.2 and higher. For detailed info, visit::
 
-HP-UX 9 was the first HP-UX release which supported the PA-RISC CPU.
-The 715 machine is the only QEMU emulated machine, which should be able
-to run HP-UX 9, so you need to add *-machine 715* when starting qemu.
-See those notes about how to install :doc:`HPUX-9 <hpux-9>`.
+        https://github.com/keithgh1/hpux905-qemu
+        https://github.com/keithgh1/qemu-hppa/commits/harmony/
 
-With QEMU v11.1, the install CD still crashes::
+To install, download the two HP-UX 9.05 CDs ("S700 Install Disc B2826-13668" and "S700 Core B2826-13669") from the Internet Archive https://archive.org/details/hp-ux-9.05-s700-May1994::
 
-        ISL booting  hpux boot disc(;0):INSTALL
-        Secondary Loader 9000/700
-        Revision 3.08
-        Booting disc(;0):INSTALL
-        1499020 + 2424832 + 217760 start 0x25030
-        
-        Stored message buffer up to panic:
-        Floating point coprocessor configured and enabled.
-        
-        I/O System Configuration:
-        interrupt type 15, pcsq.pcoq = 0.7b84c, isr.ior = 0.fffb0000
-        Data page fault on interrupt stack
-        
-        System Panic:
-           B2352A HP-UX (A.09.07) #2: Mon Apr 24 17:28:04 MDT 1995
-        panic: (display==0xbc00, flags==0x0) Interrupt
-        PC-Offset Stack Trace (read across, most recent is 1st):
-        stktrc: can't find rp
-          0x000ec98c  0x0007fdcc  0x0006f93c  0x0007b84c
-        End Of Stack
+     ./qemu-system-hppa -machine 715 -m 128 -drive file=HP-UX_9.05_S700_Install_Disc_B2826-13668.iso,if=scsi,index=2,media=cdrom,format=raw  -drive file=hdd_hpux_9.img,if=none,id=hd6,format=qcow2,cache=writethrough -device scsi-hd,drive=hd6,bus=scsi.0,scsi-id=6,vendor=SEAGATE,product=ST12400N -nic user -boot d -icount shift=4
+
+Note: You need "-icount shift=4"  with graphics, othrwise the X server's timing calibration fails.
+
+The guest is on QEMU's user-mode network, but HP-UX is installed standalone, so its network card has no address. To bring it up, run this as root on each boot::
+
+        ifconfig lan0 10.0.2.15 netmask 255.255.255.0 up
+        route add default 10.0.2.2 1
+
+The guest can then reach the host as 10.0.2.2 and the internet through it (ping, ftp, telnet). For name lookups, put nameserver 10.0.2.3 in /etc/resolv.conf. Connections from the host into the guest aren't set up.
 
 
 HP-UX 11iv1
