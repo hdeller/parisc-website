@@ -2050,6 +2050,14 @@ Kernel 7.3
 - `parisc: unwind: Replace open-coded binary search with bsearch() <https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=4485a01f4df1c9683d8ffe3e4ade6c33c9572d3c>`__
 - `parisc: parse early parameters in setup_arch() <https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=289e99e7a263c6fd6a5d07d6d8f2156b70f3a9d5>`__
 
+Kernel 7.4
+----------
+- parisc: Drop own implementations for ptep_get() and ptep_test_and_clear_young()
+- parisc: Drop redundant implementation of pte_same()
+- parisc: Drop redundant implementation of ptep_set_wrprotect()
+- parisc: eisa_enumerator: Code and whitespace cleanups
+- parisc: eisa_enumerator: Fix out-of-bounds reads of the EEPROM buffer
+
 .. _done_items:
 
 DONE items
