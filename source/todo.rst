@@ -2057,6 +2057,8 @@ Kernel 7.4
 - parisc: Drop redundant implementation of ptep_set_wrprotect()
 - parisc: eisa_enumerator: Code and whitespace cleanups
 - parisc: eisa_enumerator: Fix out-of-bounds reads of the EEPROM buffer
+- `parisc: irq: Trace hardirq state in do_cpu_irq_mask() <https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=a739c9192173c0437ed3c76f87f5a39532ef9fe1>`__
+- `parisc: Fix register corruption in 32-bit dynamic ftrace <https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=e9c14351f84f2ddf4aae2914979c0378bc14460a>`__
 
 .. _done_items:
 
